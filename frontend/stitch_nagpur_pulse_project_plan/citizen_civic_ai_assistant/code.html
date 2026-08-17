@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Civic AI - Nagpur Pulse</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#472a00",
+                        "primary-fixed": "#ffdbcf",
+                        "on-primary-container": "#511500",
+                        "on-tertiary-fixed": "#2a1700",
+                        "data-green": "#4AE176",
+                        "nagpur-orange": "#E8500A",
+                        "outline": "#aa897f",
+                        "surface-variant": "#33343b",
+                        "surface-container-highest": "#33343b",
+                        "surface-dim": "#111319",
+                        "border-subtle": "#2A2D3A",
+                        "on-tertiary-container": "#3e2400",
+                        "data-red": "#FFB4AB",
+                        "outline-variant": "#5b4138",
+                        "inverse-primary": "#aa3600",
+                        "on-primary-fixed-variant": "#822800",
+                        "tertiary-container": "#c2842f",
+                        "secondary-fixed": "#6bff8f",
+                        "on-error-container": "#ffdad6",
+                        "primary-fixed-dim": "#ffb59c",
+                        "surface-container": "#1d1f26",
+                        "on-background": "#e2e2eb",
+                        "on-secondary-fixed": "#002109",
+                        "surface-bright": "#373940",
+                        "on-secondary-container": "#004119",
+                        "error-container": "#93000a",
+                        "on-primary": "#5c1900",
+                        "surface": "#111319",
+                        "tertiary": "#ffb95f",
+                        "inverse-on-surface": "#2e3037",
+                        "primary": "#ffb59c",
+                        "surface-container-low": "#191b22",
+                        "surface-base": "#0F1117",
+                        "on-secondary-fixed-variant": "#005321",
+                        "on-tertiary-fixed-variant": "#653e00",
+                        "on-error": "#690005",
+                        "on-primary-fixed": "#390c00",
+                        "surface-container-lowest": "#0c0e14",
+                        "on-secondary": "#003915",
+                        "on-surface-variant": "#e3bfb3",
+                        "background": "#111319",
+                        "secondary-container": "#00b954",
+                        "primary-container": "#fa5c1b",
+                        "inverse-surface": "#e2e2eb",
+                        "tertiary-fixed": "#ffddb8",
+                        "surface-container-high": "#282a30",
+                        "data-amber": "#FFB95F",
+                        "secondary": "#4ae176",
+                        "surface-elevated": "#1A1D27",
+                        "tertiary-fixed-dim": "#ffb95f",
+                        "secondary-fixed-dim": "#4ae176",
+                        "on-surface": "#e2e2eb",
+                        "error": "#ffb4ab",
+                        "surface-tint": "#ffb59c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "sidebar-width": "320px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "xl": "40px",
+                        "header-height": "64px",
+                        "base": "4px",
+                        "gutter": "16px",
+                        "xs": "4px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["JetBrains Mono"],
+                        "body-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "data-md": ["JetBrains Mono"],
+                        "headline-md": ["Inter"],
+                        "data-lg": ["JetBrains Mono"],
+                        "headline-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "headline-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "data-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "data-lg": ["18px", { "lineHeight": "24px", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-image: radial-gradient(circle at 50% 50%, rgba(26, 29, 39, 0.4) 0%, #0F1117 100%);
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        
+        .ai-glow {
+            box-shadow: 0 0 12px 0px rgba(232, 80, 10, 0.3);
+        }
+        
+        .technical-grid {
+            background-image: radial-gradient(rgba(232, 80, 10, 0.1) 1px, transparent 1px);
+            background-size: 16px 16px;
+        }
+        
+        /* Custom scrollbar for chat */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111319;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2A2D3A;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #E8500A;
+        }
+    </style>
+</head>
+<body class="bg-surface-base text-on-surface font-body-md antialiased min-h-screen flex flex-col md:flex-row overflow-hidden technical-grid">
+<!-- Mobile Top Navigation (Visible only on md:hidden) -->
+<nav class="flex justify-between items-center px-lg w-full fixed top-0 z-50 bg-background dark:bg-background h-header-height border-b border-border-subtle md:hidden shadow-none">
+<div class="flex items-center gap-sm">
+<span class="font-headline-md text-headline-md font-bold text-nagpur-orange">Nagpur Pulse</span>
+</div>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-nagpur-orange" style="font-variation-settings: 'FILL' 1;">notifications</span>
+<img alt="User Profile" class="w-8 h-8 rounded-full border border-border-subtle object-cover" data-alt="A small circular avatar of a citizen user in a high-contrast dark mode environment with subtle orange glowing accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9A6GBq7xY5wXob5Ji_5ijGUoWnDUaXzi__lhNnLjB1DDCGgwEVxDt08ybdNDdqS1-JkIGnloDooVfLmO1eZHetdWszmR-tVILNIMpDbG30I4qP53OeU2LE2-HrnmAl3iFsTVUAYrzi7XWh9b_HRSf8X5rO4uHpUReLLfv3Zl0hyayDkY7qs_YrvUmZPStPosRVrwF2nP6i20Dub7UF_ZdfvUyRMo-eC_qV0Xi6stRyORsmiv6qwrMEw"/>
+</div>
+</nav>
+<!-- Desktop Side Navigation (Hidden on md:hidden) -->
+<aside class="hidden md:flex flex-col h-full py-lg bg-surface-container-lowest dark:bg-surface-container-lowest w-sidebar-width fixed left-0 top-0 border-r border-border-subtle shadow-none z-40">
+<div class="px-lg mb-xl flex flex-col gap-sm">
+<div class="flex items-center gap-md mb-sm">
+<img alt="Authority Badge" class="w-10 h-10 rounded border border-nagpur-orange ai-glow object-cover" data-alt="A technical, futuristic authority badge icon in dark gray and vibrant orange on a deep black background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFwlzLvQOgO2wt5WWgT31jGZQc5pZ_LuDx1ClajT3itWt9cpURcDl1SE-x87ZI2tPwTSOnWDXsvoW522D8VmkYwjwgaiKOtcIXITq8LJBB_fBOhHPq7zV5WREEhdclBFXmot1SmGvky9ZIhYLZDyS93z2tz-wlSIktY2hv0SiVIDOWKZwgQIdeap_F9Zen4XvjoSwloY6GUT6vIMCOQCuJn_4oO51yLo4fouiM4u2C3VP9KwI0ALPnWw"/>
+<div>
+<h1 class="font-label-caps text-label-caps text-nagpur-orange">Nagpur Pulse</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Civic Intelligence</p>
+</div>
+</div>
+<button class="w-full bg-nagpur-orange hover:bg-primary-container text-surface-base font-data-md text-data-md py-sm px-md rounded transition-colors ai-glow">Submit Report</button>
+</div>
+<nav class="flex-1 px-sm space-y-xs">
+<a class="flex items-center gap-md text-on-surface-variant px-md py-sm hover:bg-surface-container-low hover:text-on-surface transition-all duration-200 ease-in-out rounded-sm" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-data-md text-data-md">Overview</span>
+</a>
+<a class="flex items-center gap-md text-on-surface-variant px-md py-sm hover:bg-surface-container-low hover:text-on-surface transition-all duration-200 ease-in-out rounded-sm" href="#">
+<span class="material-symbols-outlined">rss_feed</span>
+<span class="font-data-md text-data-md">Live Feed</span>
+</a>
+<a class="flex items-center gap-md text-on-surface-variant px-md py-sm hover:bg-surface-container-low hover:text-on-surface transition-all duration-200 ease-in-out rounded-sm" href="#">
+<span class="material-symbols-outlined">location_city</span>
+<span class="font-data-md text-data-md">Ward Status</span>
+</a>
+<a class="flex items-center gap-md text-on-surface-variant px-md py-sm hover:bg-surface-container-low hover:text-on-surface transition-all duration-200 ease-in-out rounded-sm" href="#">
+<span class="material-symbols-outlined">construction</span>
+<span class="font-data-md text-data-md">Infrastructure</span>
+</a>
+<!-- ACTIVE STATE -->
+<a class="flex items-center gap-md bg-secondary-container/10 text-secondary border-r-4 border-secondary px-md py-sm transition-all duration-200 ease-in-out rounded-sm" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="font-data-md text-data-md">Civic AI</span>
+</a>
+</nav>
+<div class="px-sm mt-auto pt-lg border-t border-border-subtle">
+<a class="flex items-center gap-md text-on-surface-variant px-md py-sm hover:bg-surface-container-low hover:text-on-surface transition-all duration-200 ease-in-out rounded-sm" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-data-md text-data-md">Help Center</span>
+</a>
+<a class="flex items-center gap-md text-on-surface-variant px-md py-sm hover:bg-surface-container-low hover:text-on-surface transition-all duration-200 ease-in-out rounded-sm" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-data-md text-data-md">Log Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col md:ml-[320px] h-screen pt-header-height md:pt-0 relative">
+<!-- Top Toolbar (Desktop Context) -->
+<header class="hidden md:flex justify-between items-center px-lg py-md bg-surface-base border-b border-border-subtle z-30">
+<h2 class="font-headline-md text-headline-md text-on-surface flex items-center gap-sm">
+<span class="material-symbols-outlined text-nagpur-orange">psychology</span>
+                Civic Intelligence Assistant
+            </h2>
+<div class="flex items-center gap-lg">
+<!-- Explanation Toggle -->
+<div class="flex items-center bg-surface-elevated rounded border border-border-subtle p-xs">
+<button class="px-sm py-xs text-xs font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface transition-colors">Simplified</button>
+<button class="px-sm py-xs text-xs font-label-caps text-label-caps bg-nagpur-orange/10 text-nagpur-orange border border-nagpur-orange/30 rounded transition-colors ai-glow">Technical</button>
+</div>
+<div class="w-px h-6 bg-border-subtle"></div>
+<div class="flex items-center gap-sm cursor-pointer">
+<span class="font-data-md text-data-md text-on-surface-variant">Ward 4</span>
+<span class="material-symbols-outlined text-on-surface-variant text-sm">expand_more</span>
+</div>
+</div>
+</header>
+<!-- Main Layout Grid -->
+<div class="flex-1 flex flex-col lg:flex-row overflow-hidden">
+<!-- Chat Interface Canvas -->
+<div class="flex-1 flex flex-col bg-surface-base/80 backdrop-blur-sm relative z-10 border-r border-border-subtle lg:max-w-4xl">
+<!-- Chat History Scroll Area -->
+<div class="flex-1 overflow-y-auto p-lg flex flex-col gap-lg space-y-md pb-32">
+<!-- Welcome Message -->
+<div class="flex gap-md max-w-2xl">
+<div class="w-10 h-10 rounded border border-nagpur-orange bg-surface-elevated flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-nagpur-orange" style="font-variation-settings: 'FILL' 1;">psychology</span>
+</div>
+<div class="flex flex-col gap-xs mt-1">
+<span class="font-label-caps text-label-caps text-nagpur-orange">Pulse AI System</span>
+<div class="bg-surface-elevated border border-border-subtle p-md rounded rounded-tl-none font-body-md text-body-md text-on-surface">
+                                System online. Accessing real-time municipal data for Ward 4. How can I assist with your civic inquiries today?
+                            </div>
+</div>
+</div>
+<!-- User Query -->
+<div class="flex gap-md max-w-2xl self-end flex-row-reverse">
+<img alt="User" class="w-10 h-10 rounded-full border border-border-subtle shrink-0 object-cover" data-alt="A generic placeholder avatar for a user in a high-tech civic dashboard, dark theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxVfLQCZtV6_nRDnxbFjPQV7uI8VOrzsJl-kllNGcU-sxO8-HnFgOCYOQw5t8-OULOtt3wuno-CGL6w28sGtk17F1WsGvfvAfkVMr0GS0CnNmNDk7Oq3LQDZcGOSK44iHTNRzcnMznj_5DDO6t6Cn26ZyaRhU5xhqgPvhNkwskTZWJ598u68zYi2qSrXEuAsR0sWJrgNoHOLI9Hz2YBvVfFLa3XlBiTy2r75_aEKNA-H4fMPfZqtcjnw"/>
+<div class="flex flex-col gap-xs mt-1 items-end">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Citizen_839</span>
+<div class="bg-surface-container-high border border-border-subtle p-md rounded rounded-tr-none font-body-md text-body-md text-on-surface">
+                                What is the current status of the road repair project on Main Street?
+                            </div>
+</div>
+</div>
+<!-- AI Response (Technical) -->
+<div class="flex gap-md max-w-3xl">
+<div class="w-10 h-10 rounded border border-nagpur-orange bg-surface-elevated flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-nagpur-orange" style="font-variation-settings: 'FILL' 1;">psychology</span>
+</div>
+<div class="flex flex-col gap-xs mt-1 w-full">
+<span class="font-label-caps text-label-caps text-nagpur-orange flex items-center gap-xs">
+                                Pulse AI System 
+                                <span class="material-symbols-outlined text-[14px]">verified</span>
+<span class="text-on-surface-variant font-data-md normal-case opacity-50 ml-2">Processing Time: 0.4s</span>
+</span>
+<div class="bg-surface-elevated border border-border-subtle p-md rounded rounded-tl-none font-body-md text-body-md text-on-surface flex flex-col gap-md">
+<p>Querying <code>Infrastructure_Database_V2</code>... Found 1 active record.</p>
+<!-- Data Card within Chat -->
+<div class="border border-border-subtle bg-surface-base rounded p-sm grid grid-cols-2 gap-sm relative overflow-hidden group">
+<!-- Subtle zebra stripe background -->
+<div class="absolute inset-0 bg-surface-container-highest opacity-5 pointer-events-none bg-[repeating-linear-gradient(0deg,transparent,transparent_32px,#fff_32px,#fff_64px)]"></div>
+<div class="z-10">
+<div class="font-label-caps text-label-caps text-on-surface-variant mb-xs">Project ID</div>
+<div class="font-data-md text-data-md text-on-surface">PRJ-2023-W4-092</div>
+</div>
+<div class="z-10">
+<div class="font-label-caps text-label-caps text-on-surface-variant mb-xs">Current Phase</div>
+<div class="font-data-md text-data-md text-data-amber flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-data-amber animate-pulse"></span>
+                                            Sub-base Laying
+                                        </div>
+</div>
+<div class="z-10 col-span-2 mt-sm border-t border-border-subtle pt-sm">
+<div class="flex justify-between items-center mb-xs">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Completion Estimate</span>
+<span class="font-data-md text-data-md text-on-surface">68%</span>
+</div>
+<div class="w-full h-2 bg-surface-container-highest rounded overflow-hidden">
+<div class="h-full bg-nagpur-orange" style="width: 68%;"></div>
+</div>
+</div>
+</div>
+<p class="text-sm text-on-surface-variant">Contractor reported a 3-day delay due to unmapped utility lines encountered at sector 4B. Adjusted ETA for final surfacing is 2024-05-15.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Input Area (Fixed Bottom) -->
+<div class="absolute bottom-0 left-0 right-0 bg-surface-base/95 backdrop-blur-md border-t border-border-subtle p-md lg:p-lg flex flex-col gap-sm z-20">
+<!-- Suggested Chips -->
+<div class="flex gap-sm overflow-x-auto pb-2 scrollbar-hide no-scrollbar">
+<button class="whitespace-nowrap px-sm py-xs border border-border-subtle rounded-full bg-surface-elevated text-on-surface-variant hover:text-on-surface hover:border-nagpur-orange/50 font-data-md text-data-md transition-all text-xs flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]">water_drop</span>
+                            Water supply schedule Ward 4?
+                        </button>
+<button class="whitespace-nowrap px-sm py-xs border border-border-subtle rounded-full bg-surface-elevated text-on-surface-variant hover:text-on-surface hover:border-nagpur-orange/50 font-data-md text-data-md transition-all text-xs flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]">receipt_long</span>
+                            Summarize last council meeting
+                        </button>
+<button class="whitespace-nowrap px-sm py-xs border border-border-subtle rounded-full bg-surface-elevated text-on-surface-variant hover:text-on-surface hover:border-nagpur-orange/50 font-data-md text-data-md transition-all text-xs flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+                            Report new pothole
+                        </button>
+</div>
+<!-- Input Field -->
+<div class="relative group">
+<div class="absolute -inset-0.5 bg-nagpur-orange/20 rounded opacity-0 group-focus-within:opacity-100 transition duration-300 blur-sm"></div>
+<div class="relative flex items-center bg-surface-elevated border border-border-subtle rounded focus-within:border-nagpur-orange transition-colors">
+<input class="w-full bg-transparent border-none text-on-surface font-body-md py-sm pl-md focus:ring-0 placeholder-on-surface-variant/50" placeholder="Query civic database..." type="text"/>
+<button class="p-sm text-nagpur-orange hover:text-primary-container transition-colors mr-xs">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">send</span>
+</button>
+</div>
+</div>
+<div class="text-center">
+<span class="font-label-caps text-label-caps text-on-surface-variant/50 text-[10px]">AI-generated responses may be inaccurate. Verify official municipal records.</span>
+</div>
+</div>
+</div>
+<!-- Right Panel: Contextual Insights (Bento Grid Style) -->
+<aside class="hidden lg:flex flex-col w-96 bg-surface-base border-l border-border-subtle overflow-y-auto p-lg gap-md z-10">
+<div class="font-label-caps text-label-caps text-on-surface-variant border-b border-border-subtle pb-xs mb-xs">Contextual Intelligence</div>
+<!-- AI Summary Card -->
+<div class="bg-surface-elevated border border-border-subtle rounded p-md hover:border-nagpur-orange/30 transition-colors">
+<div class="flex items-center gap-sm mb-sm">
+<span class="material-symbols-outlined text-nagpur-orange text-sm">auto_awesome</span>
+<h3 class="font-data-md text-data-md text-on-surface">Ward 4 Snapshot</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-sm">
+                        Overall infrastructure health is nominal (82%). Major active disruption is the Main St. repair. 14 new citizen reports logged in past 24h, predominantly regarding streetlight outages in Sector 2.
+                    </p>
+<div class="flex justify-between items-center border-t border-border-subtle pt-sm mt-sm">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Confidence Score</span>
+<span class="font-data-md text-data-md text-data-green">94%</span>
+</div>
+</div>
+<!-- Related Data Entities Bento -->
+<div class="grid grid-cols-2 gap-sm">
+<!-- Entity 1 -->
+<div class="bg-surface-elevated border border-border-subtle rounded p-sm flex flex-col justify-between aspect-square group hover:bg-surface-container-high transition-colors cursor-pointer">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-nagpur-orange transition-colors">description</span>
+<span class="w-1.5 h-1.5 rounded-full bg-data-green"></span>
+</div>
+<div>
+<div class="font-data-md text-data-md text-on-surface truncate">Budget_FY24</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant text-[10px]">View Document</div>
+</div>
+</div>
+<!-- Entity 2 -->
+<div class="bg-surface-elevated border border-border-subtle rounded p-sm flex flex-col justify-between aspect-square group hover:bg-surface-container-high transition-colors cursor-pointer">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-nagpur-orange transition-colors">engineering</span>
+<span class="w-1.5 h-1.5 rounded-full bg-data-amber"></span>
+</div>
+<div>
+<div class="font-data-md text-data-md text-on-surface truncate">Contractor_DB</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant text-[10px]">Active Permits</div>
+</div>
+</div>
+</div>
+<!-- Recent Queries List -->
+<div class="mt-md border border-border-subtle rounded bg-surface-elevated overflow-hidden">
+<div class="px-md py-sm border-b border-border-subtle bg-surface-container-lowest">
+<h4 class="font-label-caps text-label-caps text-on-surface-variant">Recent History</h4>
+</div>
+<ul class="divide-y divide-border-subtle">
+<li class="px-md py-sm hover:bg-surface-container-high cursor-pointer flex items-center justify-between">
+<span class="font-data-md text-data-md text-on-surface text-sm truncate max-w-[200px]">Property tax deadline extension?</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[14px]">arrow_forward</span>
+</li>
+<li class="px-md py-sm hover:bg-surface-container-high cursor-pointer flex items-center justify-between">
+<span class="font-data-md text-data-md text-on-surface text-sm truncate max-w-[200px]">Compare air quality Ward 4 vs Ward 2</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[14px]">arrow_forward</span>
+</li>
+</ul>
+</div>
+</aside>
+</div>
+</main>
+<script>
+        // Simple script to handle input focus state for the glowing effect, 
+        // normally handled by CSS focus-within, but kept for potential extended logic.
+        document.querySelector('input[type="text"]').addEventListener('focus', function() {
+            this.parentElement.classList.add('ai-glow');
+        });
+        document.querySelector('input[type="text"]').addEventListener('blur', function() {
+            this.parentElement.classList.remove('ai-glow');
+        });
+    </script>
+</body></html>

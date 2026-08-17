@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hotspot Details - Nagpur Pulse</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "outline-variant": "#5b4138",
+                      "outline": "#aa897f",
+                      "secondary-container": "#00b954",
+                      "surface-container-low": "#191b22",
+                      "inverse-on-surface": "#2e3037",
+                      "on-error": "#690005",
+                      "primary": "#ffb59c",
+                      "on-primary-container": "#511500",
+                      "on-surface": "#e2e2eb",
+                      "on-background": "#e2e2eb",
+                      "error": "#ffb4ab",
+                      "on-secondary-container": "#004119",
+                      "on-tertiary-fixed": "#2a1700",
+                      "inverse-surface": "#e2e2eb",
+                      "tertiary-container": "#ca8100",
+                      "on-tertiary-container": "#3e2400",
+                      "surface-container-high": "#282a30",
+                      "surface-container-highest": "#33343b",
+                      "primary-fixed": "#ffdbcf",
+                      "surface-dim": "#111319",
+                      "tertiary-fixed": "#ffddb8",
+                      "primary-container": "#fa5c1b",
+                      "surface": "#111319",
+                      "on-primary-fixed-variant": "#822800",
+                      "tertiary-fixed-dim": "#ffb95f",
+                      "surface-container-lowest": "#0c0e14",
+                      "on-secondary": "#003915",
+                      "background": "#111319",
+                      "on-tertiary-fixed-variant": "#653e00",
+                      "primary-fixed-dim": "#ffb59c",
+                      "on-surface-variant": "#e3bfb3",
+                      "surface-container": "#1e1f26",
+                      "on-secondary-fixed-variant": "#005321",
+                      "on-secondary-fixed": "#002109",
+                      "secondary": "#4ae176",
+                      "error-container": "#93000a",
+                      "surface-bright": "#373940",
+                      "secondary-fixed-dim": "#4ae176",
+                      "surface-variant": "#33343b",
+                      "inverse-primary": "#aa3600",
+                      "on-tertiary": "#472a00",
+                      "surface-tint": "#ffb59c",
+                      "on-primary-fixed": "#390c00",
+                      "secondary-fixed": "#6bff8f",
+                      "on-error-container": "#ffdad6",
+                      "on-primary": "#5c1900",
+                      "tertiary": "#ffb95f"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "sm": "8px",
+                      "header-height": "64px",
+                      "gutter": "16px",
+                      "xl": "40px",
+                      "xs": "4px",
+                      "lg": "24px",
+                      "base": "4px",
+                      "md": "16px",
+                      "sidebar-width": "320px"
+              },
+              "fontFamily": {
+                      "data-lg": [
+                              "JetBrains Mono"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "data-md": [
+                              "JetBrains Mono"
+                      ],
+                      "label-caps": [
+                              "JetBrains Mono"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "headline-xl": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "data-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "data-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-xl": [
+                              "40px",
+                              {
+                                      "lineHeight": "48px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .map-glow {
+            box-shadow: 0 0 12px 0px rgba(250, 92, 27, 0.3); /* primary-container glow */
+        }
+        .progress-track {
+            background-color: theme('colors.surface-container-highest');
+        }
+        .progress-fill {
+            background-color: theme('colors.primary-container');
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-gutter h-header-height bg-surface-container dark:bg-surface-container border-b border-surface-container-highest dark:border-surface-container-highest">
+<div class="flex items-center gap-md">
+<span class="text-headline-md font-headline-md font-bold text-primary dark:text-primary">Nagpur Pulse</span>
+</div>
+<nav class="hidden md:flex gap-lg h-full items-end">
+<a class="text-on-surface-variant dark:text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200 pb-4" href="#">Report Issue</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-4" href="#">Public Dashboard</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200 pb-4" href="#">Authority Login</a>
+</nav>
+<div class="flex items-center gap-sm text-primary dark:text-primary">
+<button class="p-2 hover:bg-surface-container-highest rounded-full transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">notifications</span>
+</button>
+<button class="p-2 hover:bg-surface-container-highest rounded-full transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">account_circle</span>
+</button>
+</div>
+</header>
+<div class="flex-1 flex pt-header-height h-screen overflow-hidden">
+<!-- SideNavBar -->
+<aside class="hidden lg:flex flex-col fixed left-0 top-header-height h-[calc(100vh-64px)] w-sidebar-width p-md bg-surface-container-low dark:bg-surface-container-low border-r border-outline-variant z-40">
+<div class="mb-xl">
+<h2 class="text-headline-md font-headline-md text-primary">Civic Portal</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-xs">Nagpur Governance</p>
+</div>
+<nav class="flex-1 flex flex-col gap-xs">
+<a class="flex items-center gap-md p-md bg-primary-container text-on-primary-container rounded-lg font-bold translate-x-1" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="text-label-caps font-label-caps">Map View</span>
+</a>
+<a class="flex items-center gap-md p-md text-on-surface-variant hover:bg-surface-container-highest rounded-lg hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined">list_alt</span>
+<span class="text-label-caps font-label-caps">Recent Issues</span>
+</a>
+<a class="flex items-center gap-md p-md text-on-surface-variant hover:bg-surface-container-highest rounded-lg hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined">bar_chart</span>
+<span class="text-label-caps font-label-caps">Analytics</span>
+</a>
+<a class="flex items-center gap-md p-md text-on-surface-variant hover:bg-surface-container-highest rounded-lg hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-label-caps font-label-caps">Settings</span>
+</a>
+</nav>
+<button class="w-full mt-auto py-md px-lg bg-[#E8500A] text-[#F2F2F2] rounded-lg font-data-md text-data-md hover:bg-opacity-90 transition-opacity flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined">emergency</span>
+                Emergency Report
+            </button>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 lg:ml-sidebar-width relative flex flex-col md:flex-row overflow-hidden bg-background">
+<!-- Map Section -->
+<div class="w-full md:w-3/5 lg:w-2/3 h-64 md:h-full relative overflow-hidden flex-shrink-0">
+<div class="absolute inset-0 bg-surface-dim z-0">
+<img class="w-full h-full object-cover opacity-80 mix-blend-screen" data-alt="A highly detailed, professional dark-mode map interface of Nagpur city. The map features a rigorous technical aesthetic with deep navy and charcoal background tiles, stark grid alignments, and luminous orange heat map overlays indicating areas of high civic issue density. The lighting suggests a glowing, live dashboard environment." data-location="Nagpur" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmp6Qvhc33BzlKS-6RjrOP19B4307RaxU24JcpC9aJcghwEF_d6a88wDmfCgT-o9DoSLCvd3wNstSm-S8Ski9tiZg67OROKxIxOpCe6p9TmEZm2yb69pzdARAcpUD6HsjU34olIDRgp_SP4SJxrPLH55iv4_ZlyRP3EV7ohsHa8Ga7-KbxPjRYe5iohBceJuwMQb92RVTHrdTokB0erXZptc_-lBLciTZOoNhi39JIJVFowpyvgcdG5A"/>
+<div class="absolute inset-0 bg-background/50"></div>
+</div>
+<!-- Map Controls -->
+<div class="absolute top-lg right-lg z-10 flex flex-col gap-sm">
+<button class="w-10 h-10 rounded-full bg-surface-container/80 backdrop-blur-md border border-outline-variant flex items-center justify-center text-on-surface hover:border-primary-container transition-colors">
+<span class="material-symbols-outlined">add</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-surface-container/80 backdrop-blur-md border border-outline-variant flex items-center justify-center text-on-surface hover:border-primary-container transition-colors">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<button class="w-10 h-10 mt-sm rounded-full bg-surface-container/80 backdrop-blur-md border border-outline-variant flex items-center justify-center text-on-surface hover:border-primary-container transition-colors">
+<span class="material-symbols-outlined">my_location</span>
+</button>
+</div>
+<!-- Hotspot Highlight Marker -->
+<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 flex flex-col items-center">
+<div class="w-32 h-32 rounded-full border-2 border-primary-container bg-primary-container/20 map-glow animate-pulse"></div>
+<div class="absolute w-4 h-4 bg-primary-container rounded-full shadow-[0_0_15px_rgba(250,92,27,0.8)]"></div>
+</div>
+</div>
+<!-- Inspector Panel -->
+<div class="w-full md:w-2/5 lg:w-1/3 bg-surface border-l border-surface-container-highest flex flex-col h-full overflow-y-auto z-30 shadow-[-4px_0_15px_rgba(0,0,0,0.5)]">
+<!-- Header -->
+<div class="p-lg border-b border-surface-container-highest">
+<div class="flex items-center justify-between mb-sm">
+<span class="text-label-caps font-label-caps text-primary-container flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">location_on</span> HOTSPOT ZONE
+                        </span>
+<span class="text-label-caps font-label-caps text-error bg-error/10 px-sm py-xs rounded border border-error">CRITICAL</span>
+</div>
+<h1 class="text-headline-lg font-headline-lg md:text-headline-xl md:font-headline-xl text-on-surface mb-xs">Sitabuldi Interchange</h1>
+<p class="text-body-md font-body-md text-on-surface-variant">Central Transit Hub &amp; Commercial Zone</p>
+</div>
+<!-- Metrics Bento -->
+<div class="p-lg grid grid-cols-2 gap-sm border-b border-surface-container-highest bg-surface-container-low">
+<div class="bg-surface p-md rounded border border-surface-container-highest flex flex-col justify-between">
+<span class="text-label-caps font-label-caps text-on-surface-variant mb-md">ACTIVE REPORTS</span>
+<div class="text-data-lg font-data-lg text-on-surface text-3xl">12</div>
+</div>
+<div class="bg-surface p-md rounded border border-surface-container-highest flex flex-col justify-between">
+<span class="text-label-caps font-label-caps text-on-surface-variant mb-md">AVG RESPONSE</span>
+<div class="text-data-lg font-data-lg text-on-surface text-2xl">4.2 <span class="text-sm text-on-surface-variant">HRS</span></div>
+</div>
+<div class="col-span-2 bg-surface p-md rounded border border-surface-container-highest">
+<div class="flex justify-between items-center mb-sm">
+<span class="text-label-caps font-label-caps text-on-surface-variant">RESOLUTION PROGRESS</span>
+<span class="text-data-md font-data-md text-primary-container">40%</span>
+</div>
+<div class="h-2 w-full progress-track rounded-full overflow-hidden">
+<div class="h-full progress-fill w-[40%] rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Related Complaints List -->
+<div class="p-lg flex-1">
+<h3 class="text-label-caps font-label-caps text-on-surface-variant border-b border-surface-container-highest pb-sm mb-md">RELATED COMPLAINTS (4)</h3>
+<div class="flex flex-col gap-sm">
+<!-- Item 1 -->
+<div class="p-md bg-surface-container-low border border-surface-container-highest rounded hover:border-outline-variant transition-colors group cursor-pointer">
+<div class="flex justify-between items-start mb-xs">
+<span class="text-data-md font-data-md text-on-surface font-semibold group-hover:text-primary transition-colors">Pothole Cluster - Ward 12</span>
+<span class="text-label-caps font-label-caps text-tertiary-fixed-dim bg-tertiary/10 px-xs py-[2px] rounded border border-tertiary/30">PENDING</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant truncate">Severe road degradation near metro pillar 45.</p>
+<div class="mt-sm flex gap-md text-label-caps font-label-caps text-outline">
+<span class="flex items-center gap-[2px]"><span class="material-symbols-outlined text-[14px]">schedule</span> 2h ago</span>
+<span class="flex items-center gap-[2px]"><span class="material-symbols-outlined text-[14px]">forum</span> 3 Updates</span>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="p-md bg-surface-container-low border border-surface-container-highest rounded hover:border-outline-variant transition-colors group cursor-pointer">
+<div class="flex justify-between items-start mb-xs">
+<span class="text-data-md font-data-md text-on-surface font-semibold group-hover:text-primary transition-colors">Streetlight Failure</span>
+<span class="text-label-caps font-label-caps text-primary-container bg-primary-container/10 px-xs py-[2px] rounded border border-primary-container/30">ASSIGNED</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant truncate">Main stretch completely dark, safety hazard.</p>
+<div class="mt-sm flex gap-md text-label-caps font-label-caps text-outline">
+<span class="flex items-center gap-[2px]"><span class="material-symbols-outlined text-[14px]">schedule</span> 5h ago</span>
+<span class="flex items-center gap-[2px]"><span class="material-symbols-outlined text-[14px]">forum</span> 1 Update</span>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="p-md bg-surface-container-low border border-surface-container-highest rounded hover:border-outline-variant transition-colors group cursor-pointer">
+<div class="flex justify-between items-start mb-xs">
+<span class="text-data-md font-data-md text-on-surface font-semibold group-hover:text-primary transition-colors">Water Pipe Burst</span>
+<span class="text-label-caps font-label-caps text-error bg-error/10 px-xs py-[2px] rounded border border-error/30">URGENT</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant truncate">Flooding on major intersection, blocking traffic.</p>
+<div class="mt-sm flex gap-md text-label-caps font-label-caps text-outline">
+<span class="flex items-center gap-[2px]"><span class="material-symbols-outlined text-[14px]">schedule</span> 1h ago</span>
+<span class="flex items-center gap-[2px]"><span class="material-symbols-outlined text-[14px]">forum</span> 5 Updates</span>
+</div>
+</div>
+</div>
+</div>
+<!-- CTA Actions -->
+<div class="p-lg border-t border-surface-container-highest bg-surface-container-low mt-auto">
+<div class="flex flex-col gap-md">
+<button class="w-full py-md px-lg bg-[#E8500A] text-[#F2F2F2] rounded font-data-md text-data-md font-semibold hover:bg-opacity-90 transition-opacity flex items-center justify-center gap-sm shadow-[0_0_15px_rgba(232,80,10,0.2)]">
+<span class="material-symbols-outlined">group_add</span>
+                            Assign Field Crew
+                        </button>
+<button class="w-full py-md px-lg bg-transparent border border-[#2A2D3A] text-on-surface rounded font-data-md text-data-md hover:bg-surface-container-highest transition-colors flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined">arrow_upward</span>
+                            Escalate to Supervisor
+                        </button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

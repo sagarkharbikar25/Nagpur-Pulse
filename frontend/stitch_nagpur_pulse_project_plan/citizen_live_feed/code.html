@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Live Feed - Nagpur Pulse</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#472a00",
+                        "primary-fixed": "#ffdbcf",
+                        "on-primary-container": "#511500",
+                        "on-tertiary-fixed": "#2a1700",
+                        "data-green": "#4AE176",
+                        "nagpur-orange": "#E8500A",
+                        "outline": "#aa897f",
+                        "surface-variant": "#33343b",
+                        "surface-container-highest": "#33343b",
+                        "surface-dim": "#111319",
+                        "border-subtle": "#2A2D3A",
+                        "on-tertiary-container": "#3e2400",
+                        "data-red": "#FFB4AB",
+                        "outline-variant": "#5b4138",
+                        "inverse-primary": "#aa3600",
+                        "on-primary-fixed-variant": "#822800",
+                        "tertiary-container": "#c2842f",
+                        "secondary-fixed": "#6bff8f",
+                        "on-error-container": "#ffdad6",
+                        "primary-fixed-dim": "#ffb59c",
+                        "surface-container": "#1d1f26",
+                        "on-background": "#e2e2eb",
+                        "on-secondary-fixed": "#002109",
+                        "surface-bright": "#373940",
+                        "on-secondary-container": "#004119",
+                        "error-container": "#93000a",
+                        "on-primary": "#5c1900",
+                        "surface": "#111319",
+                        "tertiary": "#ffb95f",
+                        "inverse-on-surface": "#2e3037",
+                        "primary": "#ffb59c",
+                        "surface-container-low": "#191b22",
+                        "surface-base": "#0F1117",
+                        "on-secondary-fixed-variant": "#005321",
+                        "on-tertiary-fixed-variant": "#653e00",
+                        "on-error": "#690005",
+                        "on-primary-fixed": "#390c00",
+                        "surface-container-lowest": "#0c0e14",
+                        "on-secondary": "#003915",
+                        "on-surface-variant": "#e3bfb3",
+                        "background": "#111319",
+                        "secondary-container": "#00b954",
+                        "primary-container": "#fa5c1b",
+                        "inverse-surface": "#e2e2eb",
+                        "tertiary-fixed": "#ffddb8",
+                        "surface-container-high": "#282a30",
+                        "data-amber": "#FFB95F",
+                        "secondary": "#4ae176",
+                        "surface-elevated": "#1A1D27",
+                        "tertiary-fixed-dim": "#ffb95f",
+                        "secondary-fixed-dim": "#4ae176",
+                        "on-surface": "#e2e2eb",
+                        "error": "#ffb4ab",
+                        "surface-tint": "#ffb59c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "sidebar-width": "320px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "xl": "40px",
+                        "header-height": "64px",
+                        "base": "4px",
+                        "gutter": "16px",
+                        "xs": "4px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["JetBrains Mono"],
+                        "body-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "data-md": ["JetBrains Mono"],
+                        "headline-md": ["Inter"],
+                        "data-lg": ["JetBrains Mono"],
+                        "headline-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "headline-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "data-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "data-lg": ["18px", { "lineHeight": "24px", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                },
+            },
+        }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Dotted Grid Background */
+        .bg-grid-pattern {
+            background-image: radial-gradient(circle at 1px 1px, theme('colors.border-subtle') 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+        
+        /* Subtle Outer Glow for Focus/Hover */
+        .glow-hover:hover {
+            box-shadow: 0 0 12px 0px rgba(232, 80, 10, 0.3);
+            border-color: theme('colors.nagpur-orange');
+        }
+        
+        /* Status Chip Alpha Backgrounds */
+        .bg-status-open { background-color: rgba(255, 180, 171, 0.1); }
+        .bg-status-progress { background-color: rgba(255, 185, 95, 0.1); }
+        .bg-status-resolved { background-color: rgba(74, 225, 118, 0.1); }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: theme('colors.surface-base');
+        }
+        ::-webkit-scrollbar-thumb {
+            background: theme('colors.border-subtle');
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: theme('colors.surface-bright');
+        }
+    </style>
+</head>
+<body class="bg-surface-base text-on-surface font-body-md min-h-screen overflow-hidden flex">
+<!-- SideNavBar (Predicted Component) -->
+<nav class="hidden md:flex flex-col h-screen py-lg bg-surface-container-lowest dark:bg-surface-container-lowest text-nagpur-orange font-data-md text-data-md w-sidebar-width fixed left-0 top-0 border-r border-border-subtle z-40 transition-all duration-200 ease-in-out">
+<div class="px-md mb-xl flex items-center gap-md">
+<img alt="Authority Badge" class="w-10 h-10 rounded-full border border-border-subtle object-cover" data-alt="A small, stylized circular emblem or badge design representing a civic authority, featuring sharp geometric lines, metallic accents, and an orange accent color set against a dark background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUiJOv2PYBxZqgTph8PAKB0OJvL-WgYJ6A0_TA1ATQ080pJ9Qk7aZUaea8wGwGQ6j5eJ2XgaXr5ttcJl2t60Ktw1rdR41cx90n7qRavWmBGfRzRbSW8CAYGXbA6BQpMdTMllkmRHFcP8fL-odUfQgv4odrbmw0pmXc2vWxHY_WeAWWpj_xggGAyFRkBU5ONtuJ3cxDM6qks9luVteF7ygcgOwNy9vLFHgjVOa2ux_WMDnmi0W5-dnJ9w"/>
+<div>
+<h1 class="font-label-caps text-label-caps text-nagpur-orange">Nagpur Pulse</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Civic Intelligence</p>
+</div>
+</div>
+<ul class="flex-1 flex flex-col gap-sm">
+<li>
+<a class="flex items-center gap-md text-on-surface-variant px-md py-sm hover:bg-surface-container-low hover:text-on-surface transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                    Overview
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-md bg-secondary-container/10 text-secondary border-r-4 border-secondary px-md py-sm hover:bg-surface-container-low hover:text-on-surface transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="rss_feed">rss_feed</span>
+                    Live Feed
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-md text-on-surface-variant px-md py-sm hover:bg-surface-container-low hover:text-on-surface transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="location_city">location_city</span>
+                    Ward Status
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-md text-on-surface-variant px-md py-sm hover:bg-surface-container-low hover:text-on-surface transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="construction">construction</span>
+                    Infrastructure
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-md text-on-surface-variant px-md py-sm hover:bg-surface-container-low hover:text-on-surface transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+                    Civic AI
+                </a>
+</li>
+</ul>
+<div class="px-md mt-auto mb-lg">
+<button class="w-full bg-nagpur-orange text-white font-label-caps text-label-caps py-sm px-md rounded border border-transparent hover:bg-primary-container transition-colors glow-hover flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                Submit Report
+            </button>
+</div>
+<ul class="flex flex-col gap-sm border-t border-border-subtle pt-md">
+<li>
+<a class="flex items-center gap-md text-on-surface-variant px-md py-sm hover:bg-surface-container-low hover:text-on-surface transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+                    Help Center
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-md text-on-surface-variant px-md py-sm hover:bg-surface-container-low hover:text-on-surface transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                    Log Out
+                </a>
+</li>
+</ul>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col md:ml-[320px] h-screen bg-surface-base relative">
+<!-- TopNavBar (Predicted Component - Adapted for inner page context) -->
+<header class="flex justify-between items-center px-lg w-full h-header-height bg-background dark:bg-background border-b border-border-subtle z-30 sticky top-0">
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden text-on-surface mr-md">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="flex-1 flex items-center gap-lg">
+<h2 class="font-headline-md text-headline-md font-bold text-on-surface">Live Feed</h2>
+<div class="hidden md:flex gap-md border-l border-border-subtle pl-lg">
+<!-- Top Nav Contextual Links (Hidden on mobile) -->
+<a class="text-on-surface-variant font-medium font-body-md text-body-md hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md hover:text-primary transition-colors" href="#">Live Feed</a>
+<a class="text-on-surface-variant font-medium font-body-md text-body-md hover:text-primary transition-colors" href="#">Reports</a>
+<a class="text-on-surface-variant font-medium font-body-md text-body-md hover:text-primary transition-colors" href="#">Map</a>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="hidden md:flex text-nagpur-orange font-label-caps text-label-caps border border-border-subtle rounded px-md py-[6px] hover:border-nagpur-orange transition-colors">
+                    Create Alert
+                </button>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors mr-md md:mr-0">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<img alt="User Profile" class="hidden md:block w-8 h-8 rounded-full border border-border-subtle object-cover" data-alt="A professional headshot of a user profile, dimly lit with subtle orange rim lighting, set against a dark gray background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNE0F1rj7HkFEAgVDy6XODb-H6w_y-QZg0QiIdSf__vX25o7IjxNAeV-MvblhffpAe4VruQ0VdlC1pIJgLihxP8Ivo48FDaOmytIpfh9Tvp2hdseQ1DzynWAw4wqRwOI8CJjECVNBQkhF4rqD0Cj78Qh1FmjCtdS7EMXVYKs0dZF8luG-oGgpNmEdkpgTn-pj4veyl_7vylldSHA2yNtymiJ_GjEJKXyKkRdFdFA_qIp-MMcYdL6dWpg"/>
+</div>
+</header>
+<!-- Feed Content Canvas -->
+<div class="flex-1 flex overflow-hidden">
+<!-- Left Column: Filter & Feed List -->
+<div class="w-full lg:w-3/5 xl:w-1/2 flex flex-col bg-surface-base border-r border-border-subtle h-full">
+<!-- Filters Strip -->
+<div class="p-md border-b border-border-subtle bg-surface-container-lowest sticky top-0 z-20 flex gap-sm overflow-x-auto no-scrollbar">
+<button class="flex-shrink-0 px-md py-[6px] rounded-full border border-nagpur-orange bg-nagpur-orange/10 text-nagpur-orange font-data-md text-data-md glow-hover transition-all">
+                        Nearby
+                    </button>
+<button class="flex-shrink-0 px-md py-[6px] rounded-full border border-border-subtle bg-surface-container text-on-surface-variant font-data-md text-data-md hover:border-outline transition-all">
+                        Recent
+                    </button>
+<button class="flex-shrink-0 px-md py-[6px] rounded-full border border-border-subtle bg-surface-container text-data-red font-data-md text-data-md hover:border-data-red transition-all flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]" data-weight="fill">warning</span>
+                        Urgent
+                    </button>
+<div class="flex-1"></div>
+<button class="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full border border-border-subtle bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[20px]">filter_list</span>
+</button>
+</div>
+<!-- Scrolling Feed -->
+<div class="flex-1 overflow-y-auto p-md gap-md flex flex-col bg-grid-pattern relative">
+<!-- Background fade for visual depth -->
+<div class="absolute inset-0 bg-gradient-to-b from-surface-base/80 to-transparent pointer-events-none z-0 h-16"></div>
+<!-- Feed Card 1: Urgent/Open -->
+<article class="bg-surface-elevated border border-border-subtle rounded-lg p-md flex flex-col gap-sm relative z-10 glow-hover transition-all cursor-pointer group">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-sm">
+<span class="bg-status-open border border-data-red text-data-red font-data-md text-data-md px-sm py-[2px] rounded uppercase tracking-wider text-[11px]">Open</span>
+<span class="text-on-surface-variant font-data-md text-[12px]">2 mins ago</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px] group-hover:text-primary transition-colors">more_horiz</span>
+</div>
+<h3 class="font-headline-md text-[18px] text-on-surface leading-snug">Major Pothole Cluster on Wardha Road</h3>
+<p class="font-body-sm text-on-surface-variant line-clamp-2">Reported multiple deep potholes near the airport junction causing severe traffic slowdowns and potential hazards for two-wheelers.</p>
+<div class="mt-sm rounded border border-border-subtle overflow-hidden h-32 w-full relative">
+<img class="w-full h-full object-cover" data-alt="A slightly blurry, high-contrast night photograph of a wide city road in India with deep, hazardous potholes illuminated by stark white streetlights and harsh car headlights. The asphalt is cracked and uneven. The scene implies danger and urgency." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_z12_zff9KpOzcNG-wtt2TcKqJs90S-o9QLPSATge8dnuJRZRv3zP6sLNMGjBHVRzAEzqXpWymkMJX6ftjvQjew2BMiAZLPjfMzFdJo1AqyDGkuVccYeFy-fRgGjS8LogUUy1sFIFTR8qzVeCAqf3h00wD7Dm8D0Izk1q0dV9q8AkPXWM5ftoFvmXEWfobNScgY-nwEWAxLK7caP9BWjroajbYxx-TkpDTgr-zaSAXWt57JY_7RMngQ"/>
+<div class="absolute bottom-2 right-2 bg-surface-base/80 backdrop-blur-sm border border-border-subtle rounded px-sm py-[2px] flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px] text-nagpur-orange">location_on</span>
+<span class="font-data-md text-[11px] text-on-surface">Wardha Rd, Sonegaon</span>
+</div>
+</div>
+<div class="flex items-center gap-lg mt-xs border-t border-border-subtle pt-sm">
+<button class="flex items-center gap-xs text-on-surface-variant hover:text-nagpur-orange transition-colors">
+<span class="material-symbols-outlined text-[16px]">thumb_up</span>
+<span class="font-data-md text-[12px]">42 Upvotes</span>
+</button>
+<button class="flex items-center gap-xs text-on-surface-variant hover:text-nagpur-orange transition-colors">
+<span class="material-symbols-outlined text-[16px]">chat_bubble</span>
+<span class="font-data-md text-[12px]">8 Comments</span>
+</button>
+</div>
+</article>
+<!-- Feed Card 2: In Progress -->
+<article class="bg-surface-elevated border border-border-subtle rounded-lg p-md flex flex-col gap-sm relative z-10 glow-hover transition-all cursor-pointer group">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-sm">
+<span class="bg-status-progress border border-data-amber text-data-amber font-data-md text-data-md px-sm py-[2px] rounded uppercase tracking-wider text-[11px]">In Progress</span>
+<span class="text-on-surface-variant font-data-md text-[12px]">45 mins ago</span>
+</div>
+</div>
+<h3 class="font-headline-md text-[18px] text-on-surface leading-snug">Streetlight Outage - Dharampeth</h3>
+<p class="font-body-sm text-on-surface-variant line-clamp-2">NMC maintenance crew dispatched to repair the transformer issue affecting 3 blocks along West High Court Road.</p>
+<div class="flex items-center justify-between mt-sm bg-surface-container-low border border-border-subtle rounded p-sm">
+<div class="flex items-center gap-sm">
+<img alt="Crew" class="w-6 h-6 rounded-full border border-border-subtle" data-alt="A small, low-resolution profile picture of a city utility worker wearing a yellow hardhat and a reflective vest, standing against a dark background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_AupWFTXR8v1IJQmJEy9ewl8QmC4bmIkvrCH0bBwBDcnBQL_fkhKneU48HrNhOUcOOBkQW748IRv-YJJnrbX16IG6IHjnR_88CKFtcmDavsmeWA0Za04UyVDBoxdjbxwlxZR5vGbX3m22UJEjbIIFWeEMc5245LCO-JNtT-2xoAl2IuxfW3oA_zXprwDSmFiXsSIrjvzCB7qwdno5kRyw9Rj0cD40_dIUSqCZAVts2O6u7JNwO_804w"/>
+<span class="font-label-caps text-label-caps text-on-surface">Crew #04 Active</span>
+</div>
+<span class="font-data-md text-[12px] text-nagpur-orange">ETA: 1.5 hrs</span>
+</div>
+</article>
+<!-- Feed Card 3: Resolved -->
+<article class="bg-surface-elevated border border-border-subtle rounded-lg p-md flex flex-col gap-sm relative z-10 glow-hover transition-all cursor-pointer group opacity-80 hover:opacity-100">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-sm">
+<span class="bg-status-resolved border border-data-green text-data-green font-data-md text-data-md px-sm py-[2px] rounded uppercase tracking-wider text-[11px]">Resolved</span>
+<span class="text-on-surface-variant font-data-md text-[12px]">3 hours ago</span>
+</div>
+</div>
+<h3 class="font-headline-md text-[18px] text-on-surface leading-snug">Water Logging Clearance</h3>
+<p class="font-body-sm text-on-surface-variant line-clamp-2">Storm drains cleared at Manewada square following heavy rainfall reports.</p>
+<div class="flex items-center gap-xs mt-xs text-data-green">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span class="font-data-md text-[12px]">Verified by Ward Officer</span>
+</div>
+</article>
+</div>
+</div>
+<!-- Right Column: Context/Map (Hidden on smaller screens, visible on LG+) -->
+<div class="hidden lg:flex flex-col flex-1 bg-surface-container-low border-r border-border-subtle relative overflow-hidden">
+<!-- Floating Info Panel overlaid on Map -->
+<div class="absolute top-lg right-lg z-20 w-64 bg-surface-elevated/90 backdrop-blur-md border border-border-subtle rounded-lg p-md shadow-lg">
+<h4 class="font-label-caps text-label-caps text-on-surface mb-sm border-b border-border-subtle pb-xs">Zone Diagnostics</h4>
+<div class="flex flex-col gap-xs mt-sm">
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-on-surface-variant text-[12px]">Active Reports</span>
+<span class="font-data-md text-nagpur-orange">124</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-on-surface-variant text-[12px]">Resolution Rate</span>
+<span class="font-data-md text-data-green">78%</span>
+</div>
+<div class="w-full bg-surface-base h-2 mt-xs rounded overflow-hidden border border-border-subtle">
+<div class="bg-data-green h-full" style="width: 78%;"></div>
+</div>
+</div>
+</div>
+<!-- Simulated Map Area (Using background pattern and subtle styling) -->
+<div class="flex-1 w-full h-full relative" data-alt="A dark-mode styled satellite map view of Nagpur city, India. The map features high-contrast dark blue and charcoal tones for landmasses and subtle glowing orange lines representing major arterial roads. Abstract glowing dots in red and amber indicate areas of civic activity." data-location="Nagpur" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBFVSCOsMAgOiXufiTZ-JZYf304OFhBIH7xURd1n1WJS1pnRzxc6pcUBRRawGGcHSb6x5X7dVsgTpA6FyNOREa2ehjDD2dr62Q72MISM9t8SFKQaytBsiIIoddlvFlkXBwfqHnUlxvgE9pnncHZDptwxvpkdr7U2WJKgVfDO4Otvgh0XBxT8IFH8VCFtPwYN3VVE8oyJ3_3w4UmDK100ejxmeP38vqTR7OtYn6_go03JILqt7Rr-hP5dA'); background-size: cover; background-position: center;">
+<!-- Dark overlay to ensure UI elements pop -->
+<div class="absolute inset-0 bg-surface-base/60 backdrop-blur-[2px]"></div>
+<!-- Map Markers (Simulated) -->
+<div class="absolute top-1/3 left-1/4 w-4 h-4 bg-data-red rounded-full border-2 border-surface-base shadow-[0_0_10px_rgba(255,180,171,0.8)] animate-pulse"></div>
+<div class="absolute top-1/2 left-2/3 w-3 h-3 bg-data-amber rounded-full border-2 border-surface-base shadow-[0_0_8px_rgba(255,185,95,0.6)]"></div>
+<div class="absolute bottom-1/4 left-1/2 w-2 h-2 bg-data-green rounded-full border border-surface-base shadow-[0_0_6px_rgba(74,225,118,0.5)]"></div>
+</div>
+</div>
+</div>
+</main>
+</body></html>
