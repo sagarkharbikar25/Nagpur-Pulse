@@ -1,0 +1,17 @@
+{
+    "name": "civic-issue-server",
+    "version": "1.0.0",
+    "scripts": {
+        "dev": "tsx src/index.ts"
+    },
+    "dependencies": {
+        "dotenv": "^17.4.2",
+        "express": "^5.2.1",
+        "openai": "^7.4.0"
+    },
+    "devDependencies": {
+        "@types/express": "^5.0.6",
+        "@types/node": "^26.2.0",
+        "tsx": "^4.23.12"
+    }
+}
