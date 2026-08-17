@@ -3,11 +3,14 @@ import multer from 'multer';
 
 import { IssuesService } from '../services/issues.service';
 import { StorageService } from '../services/storage.service';
+import { AIService } from '../services/ai.service';
+import { ClusteringService } from '../services/clustering.service';
 import { authenticate, authorizeRole, authorizeWard } from '../middleware/auth.middleware';
 import { validate } from '../middleware/validate.middleware';
 import { issueSubmitLimiter, photoUploadLimiter } from '../middleware/rateLimit.middleware';
 import { createIssueSchema } from '../validators/issue.validator';
 import { updateStatusSchema } from '../validators/status.validator';
+
 
 const router = Router();
 
@@ -77,15 +80,32 @@ router.post(
     try {
       // @ts-ignore
       const userId = req.user.id;
+      const { description, ward_id, category_hint, photo_url } = req.validatedBody;
 
+      // Run AI categorization (always returns — never crashes)
+      const aiResult = await AIService.categorizeIssue(description);
+
+      // Create issue with AI-assigned fields
       const issue = await IssuesService.createIssue({
-        ...req.validatedBody,
         citizen_id: userId,
+        ward_id,
+        description,
+        category_hint,
+        photo_url,
+        category: aiResult.category,
+        ai_summary: aiResult.summary,
+        severity_hint: aiResult.severity_hint,
       });
+
+      // Run clustering check (non-blocking — never crashes issue creation)
+      const hotspotTriggered = await ClusteringService.checkAndUpdateHotspot(
+        ward_id,
+        aiResult.category
+      );
 
       res.status(201).json({
         success: true,
-        data: issue,
+        data: { ...issue, hotspot_triggered: hotspotTriggered },
         error: null,
       });
     } catch (err) {
@@ -93,6 +113,7 @@ router.post(
     }
   },
 );
+
 
 // ─────────────────────────────────────────────────
 // POST /api/issues/upload-photo

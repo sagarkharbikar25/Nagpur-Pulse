@@ -9,6 +9,9 @@ import { generalLimiter } from './middleware/rateLimit.middleware';
 
 // Routes
 import issuesRoutes from './routes/issues.routes';
+import wardsRoutes from './routes/wards.routes';
+import hotspotsRoutes from './routes/hotspots.routes';
+import dashboardRoutes from './routes/dashboard.routes';
 
 // Express request augmentation
 declare global {
@@ -65,6 +68,9 @@ app.get('/health', (_req, res) => {
 // API Routes
 // ─────────────────────────────────────────────────
 app.use('/api/issues', issuesRoutes);
+app.use('/api/wards', wardsRoutes);
+app.use('/api/hotspots', hotspotsRoutes);
+app.use('/api/dashboard', dashboardRoutes);
 
 // 404 handler
 app.use((_req, res) => {
