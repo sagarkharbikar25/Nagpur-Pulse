@@ -73,12 +73,16 @@ export default function AuthPage() {
     // Role-specific credential validation
     if (officialRole === 'authority') {
       const targetWard = wardList.find((w: any) => w.id === selectedWardId) || wardList[0];
+      const matchedDbWard = (wards ?? []).find(
+        (w: any) => w.id === targetWard.id || w.name.toLowerCase() === targetWard.name.toLowerCase()
+      );
       const authorityUser = {
         id: 'b2ba4d23-7401-4d09-9b7e-9b7e9b7e9b7e',
         email: email.trim(),
         name: `Ward Officer (${targetWard.name})`,
         role: 'authority',
-        ward_id: targetWard.id,
+        ward_id: matchedDbWard?.id || targetWard.id,
+        ward_name: targetWard.name,
       };
       localStorage.setItem('nagpur_pulse_user', JSON.stringify(authorityUser));
       setLoading(false);

@@ -22,22 +22,35 @@ export default function AuthorityDashboard() {
   const [updatingId, setUpdatingId] = useState<string | null>(null);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
+  let storedUser = null;
+  try {
+    const raw = localStorage.getItem('nagpur_pulse_user');
+    if (raw) storedUser = JSON.parse(raw);
+  } catch {
+    // ignore
+  }
+  const activeUser = user || storedUser;
+  const userWardName = activeUser?.ward_name || activeUser?.name?.match(/\((.*?)\)/)?.[1] || '';
+
   // Get current assigned ward
-  const assignedWard = (wards ?? []).find((w: any) => w.id === user?.ward_id) ?? {
-    name: 'Dharampeth Ward (Zone 1)',
-    latitude: 21.1458,
-    longitude: 79.0882,
+  const assignedWard = (wards ?? []).find(
+    (w: any) => (activeUser?.ward_id && w.id === activeUser.ward_id) ||
+                (userWardName && w.name.toLowerCase() === userWardName.toLowerCase())
+  ) ?? {
+    name: userWardName ? `${userWardName} Ward` : 'Sadar Ward (Zone 3)',
+    latitude: 21.1612,
+    longitude: 79.0833,
   };
 
   // Fetch ward data
   const { data: wardData, isLoading } = useQuery({
-    queryKey: ['authority-ward-data', user?.ward_id],
+    queryKey: ['authority-ward-data', activeUser?.ward_id, assignedWard.name],
     queryFn: async () => {
-      if (!user?.ward_id) {
+      if (!activeUser?.ward_id) {
         const { data } = await api.get('/api/issues', { params: { limit: '50' } });
         return { hotspots: [], issues: data.data.issues ?? [] };
       }
-      const { data } = await api.get(`/api/hotspots/${user.ward_id}`);
+      const { data } = await api.get(`/api/hotspots/${activeUser.ward_id}`);
       return data.data;
     },
   });

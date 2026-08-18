@@ -15,8 +15,22 @@ export default function AuthorityWardStatusPage() {
   const [selectedWardId, setSelectedWardId] = useState<string>('');
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
-  const activeWardId = selectedWardId || user?.ward_id || wards?.[0]?.id || '';
-  const currentWard = (wards ?? []).find((w: any) => w.id === activeWardId);
+  let storedUser = null;
+  try {
+    const raw = localStorage.getItem('nagpur_pulse_user');
+    if (raw) storedUser = JSON.parse(raw);
+  } catch {
+    // ignore
+  }
+  const activeUser = user || storedUser;
+  const userWardName = activeUser?.ward_name || activeUser?.name?.match(/\((.*?)\)/)?.[1] || '';
+  const userWard = (wards ?? []).find(
+    (w: any) => (activeUser?.ward_id && w.id === activeUser.ward_id) ||
+                (userWardName && w.name.toLowerCase() === userWardName.toLowerCase())
+  );
+
+  const activeWardId = selectedWardId || userWard?.id || activeUser?.ward_id || wards?.[0]?.id || '';
+  const currentWard = (wards ?? []).find((w: any) => w.id === activeWardId) || userWard;
 
   const { data: issueData } = useIssues({ ward_id: activeWardId, limit: '50' });
   const wardIssues = issueData?.issues ?? [];
