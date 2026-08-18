@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ward Status - Nagpur Pulse</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#472a00",
+                        "primary-fixed": "#ffdbcf",
+                        "on-primary-container": "#511500",
+                        "on-tertiary-fixed": "#2a1700",
+                        "data-green": "#4AE176",
+                        "nagpur-orange": "#E8500A",
+                        "outline": "#aa897f",
+                        "surface-variant": "#33343b",
+                        "surface-container-highest": "#33343b",
+                        "surface-dim": "#111319",
+                        "border-subtle": "#2A2D3A",
+                        "on-tertiary-container": "#3e2400",
+                        "data-red": "#FFB4AB",
+                        "outline-variant": "#5b4138",
+                        "inverse-primary": "#aa3600",
+                        "on-primary-fixed-variant": "#822800",
+                        "tertiary-container": "#c2842f",
+                        "secondary-fixed": "#6bff8f",
+                        "on-error-container": "#ffdad6",
+                        "primary-fixed-dim": "#ffb59c",
+                        "surface-container": "#1d1f26",
+                        "on-background": "#e2e2eb",
+                        "on-secondary-fixed": "#002109",
+                        "surface-bright": "#373940",
+                        "on-secondary-container": "#004119",
+                        "error-container": "#93000a",
+                        "on-primary": "#5c1900",
+                        "surface": "#111319",
+                        "tertiary": "#ffb95f",
+                        "inverse-on-surface": "#2e3037",
+                        "primary": "#ffb59c",
+                        "surface-container-low": "#191b22",
+                        "surface-base": "#0F1117",
+                        "on-secondary-fixed-variant": "#005321",
+                        "on-tertiary-fixed-variant": "#653e00",
+                        "on-error": "#690005",
+                        "on-primary-fixed": "#390c00",
+                        "surface-container-lowest": "#0c0e14",
+                        "on-secondary": "#003915",
+                        "on-surface-variant": "#e3bfb3",
+                        "background": "#111319",
+                        "secondary-container": "#00b954",
+                        "primary-container": "#fa5c1b",
+                        "inverse-surface": "#e2e2eb",
+                        "tertiary-fixed": "#ffddb8",
+                        "surface-container-high": "#282a30",
+                        "data-amber": "#FFB95F",
+                        "secondary": "#4ae176",
+                        "surface-elevated": "#1A1D27",
+                        "tertiary-fixed-dim": "#ffb95f",
+                        "secondary-fixed-dim": "#4ae176",
+                        "on-surface": "#e2e2eb",
+                        "error": "#ffb4ab",
+                        "surface-tint": "#ffb59c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "sidebar-width": "320px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "xl": "40px",
+                        "header-height": "64px",
+                        "base": "4px",
+                        "gutter": "16px",
+                        "xs": "4px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["JetBrains Mono"],
+                        "body-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "data-md": ["JetBrains Mono"],
+                        "headline-md": ["Inter"],
+                        "data-lg": ["JetBrains Mono"],
+                        "headline-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "headline-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "data-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "data-lg": ["18px", { "lineHeight": "24px", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #0F1117; color: #e2e2eb; }
+        .bg-dotted { background-image: radial-gradient(#2A2D3A 1px, transparent 1px); background-size: 16px 16px; }
+        .glow-active { box-shadow: 0 0 12px 0px rgba(232, 80, 10, 0.3); }
+        .zebra-row:nth-child(even) { background-color: rgba(255, 255, 255, 0.02); }
+    </style>
+</head>
+<body class="flex bg-surface-base min-h-screen overflow-x-hidden font-body-md">
+<!-- SideNavBar (Desktop) -->
+<nav class="hidden md:flex flex-col h-full py-lg w-sidebar-width h-screen fixed left-0 top-0 border-r border-border-subtle bg-surface-container-lowest z-40">
+<div class="px-lg mb-xl">
+<div class="flex items-center gap-md">
+<img alt="Authority Badge" class="w-10 h-10 rounded-full object-cover border border-border-subtle" data-alt="A stylized minimalist digital badge representing a civic authority seal. Geometric, sharp lines in orange and charcoal gray, dark mode aesthetic, modern technical style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-w1tEb0af5zTGvpOg4KPW4ZzrjB33BE1kUNPa2ijCG2CAaQY1lAq5oWIZlyXOSaI8bjQHe_eQtlM-Xt7tnTImqGDDqZC3X4A1KzI4vGEaY5UbCci4gL9zseUx8c7HDaOhtARUm_3Yw3WPOrebbpmv33VlmnG9idGPd--aqMrjdSWvn5mDhWfvh2V5Tdt48tfEf93_0z-cgIGIMTO9Sq05FOISUQJ4pDvaumFTBD7IPQTj7MvjvejKPg"/>
+<div>
+<h1 class="font-label-caps text-label-caps text-nagpur-orange">Nagpur Pulse</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Civic Intelligence</p>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-sm flex-1">
+<a class="flex items-center gap-md text-on-surface-variant px-md py-sm hover:bg-surface-container-low hover:text-on-surface transition-all duration-200 ease-in-out font-data-md text-data-md" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Overview
+            </a>
+<a class="flex items-center gap-md text-on-surface-variant px-md py-sm hover:bg-surface-container-low hover:text-on-surface transition-all duration-200 ease-in-out font-data-md text-data-md" href="#">
+<span class="material-symbols-outlined" data-icon="rss_feed">rss_feed</span>
+                Live Feed
+            </a>
+<a class="flex items-center gap-md bg-secondary-container/10 text-secondary border-r-4 border-secondary px-md py-sm transition-all duration-200 ease-in-out font-data-md text-data-md" href="#">
+<span class="material-symbols-outlined" data-icon="location_city">location_city</span>
+                Ward Status
+            </a>
+<a class="flex items-center gap-md text-on-surface-variant px-md py-sm hover:bg-surface-container-low hover:text-on-surface transition-all duration-200 ease-in-out font-data-md text-data-md" href="#">
+<span class="material-symbols-outlined" data-icon="construction">construction</span>
+                Infrastructure
+            </a>
+<a class="flex items-center gap-md text-on-surface-variant px-md py-sm hover:bg-surface-container-low hover:text-on-surface transition-all duration-200 ease-in-out font-data-md text-data-md" href="#">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+                Civic AI
+            </a>
+</div>
+<div class="px-md mt-auto mb-lg">
+<button class="w-full bg-nagpur-orange text-white font-data-md text-data-md py-sm rounded border border-transparent hover:bg-primary-container transition-colors glow-active">
+                Submit Report
+            </button>
+</div>
+<div class="flex flex-col gap-sm border-t border-border-subtle pt-md mx-md">
+<a class="flex items-center gap-md text-on-surface-variant px-sm py-sm hover:bg-surface-container-low hover:text-on-surface transition-all duration-200 ease-in-out font-data-md text-data-md" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+                Help Center
+            </a>
+<a class="flex items-center gap-md text-on-surface-variant px-sm py-sm hover:bg-surface-container-low hover:text-on-surface transition-all duration-200 ease-in-out font-data-md text-data-md" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                Log Out
+            </a>
+</div>
+</nav>
+<!-- TopNavBar (Mobile) / Header Area -->
+<div class="flex-1 md:ml-[320px] flex flex-col relative w-full min-h-screen">
+<nav class="md:hidden flex justify-between items-center px-lg w-full fixed top-0 z-50 bg-background border-b border-border-subtle h-header-height">
+<div class="font-headline-md text-headline-md font-bold text-nagpur-orange">Nagpur Pulse</div>
+<div class="flex items-center gap-md text-nagpur-orange">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors active:scale-95 duration-150" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors active:scale-95 duration-150" data-icon="settings">settings</span>
+<img alt="User Profile" class="w-8 h-8 rounded-full border border-nagpur-orange" data-alt="A small circular avatar placeholder image. Dark modern technical UI style. Deep charcoal background with a subtle orange border." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAP2TiFa4FX1cCohy-XXWXFSECt9_r2pR7Ik35Qn4G5m8vIz9sfwaeTDSH5shrbwzIg4EFcaElm8vJ0FrH2277MQwXc2eX2ZHMoB53Xp3ISqYYqOmOQGaI_MZiJClMEVQjP0sOqNAR9pqeIMwfKqdkz5JzRCRkSpi0ZqaeSnA7irG2fBLdbaUYkPqxIlhf2BTFwubSy1EXNIxjrceTB7BcS9E7oVyqAJ1hz9qBflxsGt8zbRbt1XlB1bg"/>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 p-lg md:p-xl pt-[calc(64px+24px)] md:pt-xl bg-dotted">
+<header class="mb-xl flex flex-col md:flex-row justify-between items-start md:items-end gap-md">
+<div>
+<h2 class="font-label-caps text-label-caps text-on-surface-variant mb-xs">WARD STATUS DASHBOARD</h2>
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-on-surface">Dharampeth Ward (W-12)</h1>
+</div>
+<div class="flex items-center gap-sm">
+<span class="flex items-center gap-xs px-sm py-xs rounded bg-secondary/10 border border-secondary text-secondary font-data-md text-data-md">
+<span class="material-symbols-outlined text-[16px]" data-icon="check_circle">check_circle</span>
+                        Status: Nominal
+                    </span>
+<button class="bg-surface-elevated border border-border-subtle text-on-surface px-md py-sm rounded hover:border-primary/50 transition-colors font-data-md text-data-md flex items-center gap-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="filter_list">filter_list</span>
+                        Filter Views
+                    </button>
+</div>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-lg mb-xl">
+<!-- Ward Performance Score -->
+<div class="md:col-span-4 bg-surface-elevated border border-border-subtle rounded-lg p-lg flex flex-col justify-between hover:border-primary/30 transition-all duration-300 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-sm opacity-10">
+<span class="material-symbols-outlined text-6xl" data-icon="speed">speed</span>
+</div>
+<div class="z-10">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-md">Ward Performance Score</h3>
+<div class="flex items-baseline gap-sm mb-sm">
+<span class="font-headline-xl text-nagpur-orange font-bold">87</span>
+<span class="font-body-md text-on-surface-variant">/ 100</span>
+</div>
+<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden mt-md">
+<div class="bg-nagpur-orange h-full rounded-full" style="width: 87%"></div>
+</div>
+<p class="font-body-sm text-secondary mt-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]" data-icon="trending_up">trending_up</span>
+                            +2.4% from last month
+                        </p>
+</div>
+</div>
+<!-- Active Issues & Resolved Counter -->
+<div class="md:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-lg">
+<div class="bg-surface-elevated border border-border-subtle rounded-lg p-lg flex flex-col justify-between">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-md">Total Active Issues</h3>
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-full bg-error/10 border border-error flex items-center justify-center text-error">
+<span class="material-symbols-outlined" data-icon="warning">warning</span>
+</div>
+<div>
+<div class="font-data-lg text-headline-md">42</div>
+<div class="font-body-sm text-on-surface-variant">Requires attention</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-elevated border border-border-subtle rounded-lg p-lg flex flex-col justify-between">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-md">Resolved This Week</h3>
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-full bg-secondary/10 border border-secondary flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="task_alt">task_alt</span>
+</div>
+<div>
+<div class="font-data-lg text-headline-md">18</div>
+<div class="font-body-sm text-on-surface-variant">Issues closed successfully</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Mini-Map Area -->
+<div class="md:col-span-6 bg-surface-elevated border border-border-subtle rounded-lg overflow-hidden relative min-h-[300px]">
+<div class="absolute top-0 left-0 w-full p-md z-10 bg-gradient-to-b from-surface-elevated to-transparent flex justify-between items-center">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant">Issue Clusters Map</h3>
+<button class="text-nagpur-orange hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="fullscreen">fullscreen</span>
+</button>
+</div>
+<!-- Simulated Map Background -->
+<div class="absolute inset-0 w-full h-full bg-cover bg-center opacity-60 mix-blend-luminosity" data-alt="A highly detailed, dark mode technical map of a city ward (Dharampeth, Nagpur). Neon vector lines, dark charcoal background, precise geometric street layouts. Glowing accent points in orange and red indicating data nodes. Utilitarian, high-tech interface aesthetic." data-location="Nagpur" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBFVSCOsMAgOiXufiTZ-JZYf304OFhBIH7xURd1n1WJS1pnRzxc6pcUBRRawGGcHSb6x5X7dVsgTpA6FyNOREa2ehjDD2dr62Q72MISM9t8SFKQaytBsiIIoddlvFlkXBwfqHnUlxvgE9pnncHZDptwxvpkdr7U2WJKgVfDO4Otvgh0XBxT8IFH8VCFtPwYN3VVE8oyJ3_3w4UmDK100ejxmeP38vqTR7OtYn6_go03JILqt7Rr-hP5dA')"></div>
+<!-- Overlay Grid for aesthetic -->
+<div class="absolute inset-0 w-full h-full bg-dotted opacity-30"></div>
+<!-- Map Markers (Simulated) -->
+<div class="absolute top-1/3 left-1/4 w-3 h-3 bg-error rounded-full shadow-[0_0_10px_2px_rgba(255,180,171,0.5)] animate-pulse"></div>
+<div class="absolute top-1/2 left-1/2 w-4 h-4 bg-nagpur-orange rounded-full shadow-[0_0_12px_3px_rgba(232,80,10,0.6)] animate-pulse"></div>
+<div class="absolute bottom-1/4 right-1/3 w-3 h-3 bg-secondary rounded-full shadow-[0_0_10px_2px_rgba(74,225,118,0.5)]"></div>
+</div>
+<!-- Ongoing Infrastructure Projects -->
+<div class="md:col-span-6 bg-surface-elevated border border-border-subtle rounded-lg flex flex-col">
+<div class="p-md border-b border-border-subtle flex justify-between items-center">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant">Ongoing Infrastructure Projects</h3>
+<a class="text-nagpur-orange font-data-md text-data-md hover:underline" href="#">View All</a>
+</div>
+<div class="flex-1 overflow-y-auto">
+<!-- Project List Item 1 -->
+<div class="p-md border-b border-border-subtle zebra-row hover:bg-surface-container-high transition-colors">
+<div class="flex justify-between items-start mb-sm">
+<div>
+<h4 class="font-data-md text-on-surface">West High Court Road Resurfacing</h4>
+<p class="font-body-sm text-on-surface-variant">Roadworks &amp; Paving</p>
+</div>
+<span class="px-2 py-1 rounded text-[10px] font-label-caps bg-nagpur-orange/10 border border-nagpur-orange text-nagpur-orange">IN PROGRESS</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden mt-sm">
+<div class="bg-nagpur-orange h-full rounded-full" style="width: 65%"></div>
+</div>
+<div class="flex justify-between mt-xs font-data-md text-[12px] text-on-surface-variant">
+<span>65% Complete</span>
+<span>Est. End: Oct 24</span>
+</div>
+</div>
+<!-- Project List Item 2 -->
+<div class="p-md border-b border-border-subtle zebra-row hover:bg-surface-container-high transition-colors">
+<div class="flex justify-between items-start mb-sm">
+<div>
+<h4 class="font-data-md text-on-surface">Gokulpeth Market Drainage Upgrade</h4>
+<p class="font-body-sm text-on-surface-variant">Sanitation</p>
+</div>
+<span class="px-2 py-1 rounded text-[10px] font-label-caps bg-secondary/10 border border-secondary text-secondary">NEAR COMPLETION</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden mt-sm">
+<div class="bg-secondary h-full rounded-full" style="width: 90%"></div>
+</div>
+<div class="flex justify-between mt-xs font-data-md text-[12px] text-on-surface-variant">
+<span>90% Complete</span>
+<span>Est. End: Sep 15</span>
+</div>
+</div>
+<!-- Project List Item 3 -->
+<div class="p-md zebra-row hover:bg-surface-container-high transition-colors">
+<div class="flex justify-between items-start mb-sm">
+<div>
+<h4 class="font-data-md text-on-surface">Traffic Signal Sync - Shankar Nagar</h4>
+<p class="font-body-sm text-on-surface-variant">Smart City IoT</p>
+</div>
+<span class="px-2 py-1 rounded text-[10px] font-label-caps bg-tertiary/10 border border-tertiary text-tertiary">PLANNING PHASE</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden mt-sm">
+<div class="bg-tertiary h-full rounded-full" style="width: 15%"></div>
+</div>
+<div class="flex justify-between mt-xs font-data-md text-[12px] text-on-surface-variant">
+<span>15% Complete</span>
+<span>Est. End: Dec 24</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-lg mt-auto flex flex-col md:flex-row justify-between items-center px-xl gap-md bg-surface-dim border-t border-border-subtle">
+<div class="font-label-caps text-label-caps text-on-surface-variant">
+                © 2024 Nagpur Pulse Civic Intelligence Platform. Transparancy &amp; Accountability.
+            </div>
+<div class="flex gap-md">
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#">Public Ledger</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#">Data Privacy</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#">API Documentation</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#">Contact Authority</a>
+</div>
+</footer>
+</div>
+</body></html>

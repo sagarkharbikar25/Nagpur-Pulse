@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nagpur Pulse - Infrastructure</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-dim": "#111319",
+                      "secondary": "#4ae176",
+                      "inverse-primary": "#aa3600",
+                      "secondary-fixed-dim": "#4ae176",
+                      "on-background": "#e2e2eb",
+                      "surface-bright": "#373940",
+                      "on-primary-fixed-variant": "#822800",
+                      "nagpur-orange": "#E8500A",
+                      "border-subtle": "#2A2D3A",
+                      "on-surface-variant": "#e3bfb3",
+                      "secondary-fixed": "#6bff8f",
+                      "on-tertiary-fixed-variant": "#653e00",
+                      "data-red": "#FFB4AB",
+                      "surface-base": "#0F1117",
+                      "background": "#111319",
+                      "data-green": "#4AE176",
+                      "primary": "#ffb59c",
+                      "inverse-surface": "#e2e2eb",
+                      "on-primary-fixed": "#390c00",
+                      "surface-container-highest": "#33343b",
+                      "on-secondary-fixed": "#002109",
+                      "secondary-container": "#00b954",
+                      "surface-variant": "#33343b",
+                      "on-primary": "#5c1900",
+                      "on-tertiary-fixed": "#2a1700",
+                      "primary-container": "#fa5c1b",
+                      "on-secondary": "#003915",
+                      "surface-container-low": "#191b22",
+                      "error": "#ffb4ab",
+                      "outline-variant": "#5b4138",
+                      "surface-container-high": "#282a30",
+                      "on-primary-container": "#511500",
+                      "on-tertiary": "#472a00",
+                      "data-amber": "#FFB95F",
+                      "surface": "#111319",
+                      "tertiary-fixed": "#ffddb8",
+                      "on-error-container": "#ffdad6",
+                      "on-error": "#690005",
+                      "on-secondary-container": "#004119",
+                      "on-surface": "#e2e2eb",
+                      "surface-container": "#1d1f26",
+                      "tertiary-container": "#c2842f",
+                      "tertiary-fixed-dim": "#ffb95f",
+                      "surface-elevated": "#1A1D27",
+                      "on-secondary-fixed-variant": "#005321",
+                      "on-tertiary-container": "#3e2400",
+                      "primary-fixed-dim": "#ffb59c",
+                      "inverse-on-surface": "#2e3037",
+                      "surface-tint": "#ffb59c",
+                      "primary-fixed": "#ffdbcf",
+                      "outline": "#aa897f",
+                      "surface-container-lowest": "#0c0e14",
+                      "tertiary": "#ffb95f",
+                      "error-container": "#93000a"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "xl": "40px",
+                      "sm": "8px",
+                      "xs": "4px",
+                      "gutter": "16px",
+                      "base": "4px",
+                      "md": "16px",
+                      "lg": "24px",
+                      "sidebar-width": "320px",
+                      "header-height": "64px"
+              },
+              "fontFamily": {
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "label-caps": [
+                              "JetBrains Mono"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ],
+                      "data-md": [
+                              "JetBrains Mono"
+                      ],
+                      "data-lg": [
+                              "JetBrains Mono"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "headline-xl": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "data-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "data-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-xl": [
+                              "40px",
+                              {
+                                      "lineHeight": "48px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        body {
+            background-color: #0F1117;
+            color: #e2e2eb;
+            background-image: radial-gradient(#2A2D3A 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .glow-active {
+            box-shadow: 0 0 12px 0px rgba(232, 80, 10, 0.3);
+        }
+      </style>
+</head>
+<body class="flex min-h-screen">
+<!-- SideNavBar -->
+<nav class="hidden md:flex bg-surface-container-lowest dark:bg-surface-container-lowest text-nagpur-orange font-data-md text-data-md w-sidebar-width h-screen fixed left-0 top-0 border-r border-border-subtle flex-col py-lg z-40">
+<div class="px-lg mb-xl flex items-center gap-sm">
+<span class="material-symbols-outlined text-4xl" data-weight="fill" style="font-variation-settings: 'FILL' 1;">admin_panel_settings</span>
+<div>
+<h1 class="font-label-caps text-label-caps text-nagpur-orange">Nagpur Pulse</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Civic Intelligence</p>
+</div>
+</div>
+<div class="flex flex-col gap-xs flex-1">
+<a class="flex items-center gap-md text-on-surface-variant px-md py-sm hover:bg-surface-container-low hover:text-on-surface transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                Overview
+            </a>
+<a class="flex items-center gap-md text-on-surface-variant px-md py-sm hover:bg-surface-container-low hover:text-on-surface transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">rss_feed</span>
+                Live Feed
+            </a>
+<a class="flex items-center gap-md text-on-surface-variant px-md py-sm hover:bg-surface-container-low hover:text-on-surface transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">location_city</span>
+                Ward Status
+            </a>
+<a class="flex items-center gap-md bg-secondary-container/10 text-secondary border-r-4 border-secondary px-md py-sm transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">construction</span>
+                Infrastructure
+            </a>
+<a class="flex items-center gap-md text-on-surface-variant px-md py-sm hover:bg-surface-container-low hover:text-on-surface transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">psychology</span>
+                Civic AI
+            </a>
+</div>
+<div class="px-md mt-auto flex flex-col gap-sm">
+<button class="w-full bg-nagpur-orange text-white font-label-caps text-label-caps py-sm px-md rounded-DEFAULT hover:bg-primary-container transition-colors">
+                Submit Report
+            </button>
+<div class="h-px bg-border-subtle my-sm w-full"></div>
+<a class="flex items-center gap-md text-on-surface-variant px-md py-sm hover:text-on-surface transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">help</span>
+                Help Center
+            </a>
+<a class="flex items-center gap-md text-on-surface-variant px-md py-sm hover:text-on-surface transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">logout</span>
+                Log Out
+            </a>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-1 ml-0 md:ml-[320px] p-lg md:p-xl flex flex-col gap-lg">
+<!-- Header -->
+<header class="flex justify-between items-end border-b border-border-subtle pb-md">
+<div>
+<h2 class="font-headline-xl text-headline-xl text-on-surface">Infrastructure Assets</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Real-time health monitoring of long-term civic assets.</p>
+</div>
+<div class="flex gap-sm">
+<button class="flex items-center gap-xs px-md py-sm border border-border-subtle rounded-DEFAULT text-on-surface font-label-caps text-label-caps hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-sm">download</span> Export
+                </button>
+</div>
+</header>
+<!-- Bento Grid Dashboard -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Overall Health Card -->
+<div class="md:col-span-8 bg-surface-elevated border border-border-subtle rounded-lg p-lg flex flex-col justify-between">
+<div class="flex justify-between items-start mb-md">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant">System Health Index</h3>
+<span class="px-sm py-xs bg-data-green/10 border border-data-green text-data-green font-data-md text-data-md rounded-DEFAULT flex items-center gap-xs">
+<span class="material-symbols-outlined text-sm">trending_up</span> Stable
+                    </span>
+</div>
+<div class="flex items-end gap-md">
+<div class="font-headline-xl text-headline-xl text-on-surface leading-none">94.2%</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant mb-xs">Network Operability</div>
+</div>
+<div class="w-full h-2 bg-surface-container-high rounded-full mt-md overflow-hidden">
+<div class="h-full bg-nagpur-orange w-[94.2%]"></div>
+</div>
+</div>
+<!-- Urgent Alerts -->
+<div class="md:col-span-4 bg-surface-elevated border border-border-subtle rounded-lg p-lg glow-active">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-label-caps text-label-caps text-nagpur-orange flex items-center gap-xs">
+<span class="material-symbols-outlined text-sm">warning</span> Action Required
+                    </h3>
+</div>
+<div class="flex flex-col gap-sm">
+<div class="p-sm bg-surface-container-highest border border-border-subtle rounded-DEFAULT flex justify-between items-center">
+<span class="font-data-md text-data-md text-data-red">Water Leaks</span>
+<span class="font-label-caps text-label-caps bg-data-red/20 text-data-red px-xs py-base rounded-sm border border-data-red">3 Detected</span>
+</div>
+<div class="p-sm bg-surface-container-highest border border-border-subtle rounded-DEFAULT flex justify-between items-center">
+<span class="font-data-md text-data-md text-data-amber">Power Grids</span>
+<span class="font-label-caps text-label-caps bg-data-amber/20 text-data-amber px-xs py-base rounded-sm border border-data-amber">1 Suboptimal</span>
+</div>
+</div>
+</div>
+<!-- Asset Type Grid -->
+<div class="md:col-span-12 grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Street Lights -->
+<div class="bg-surface-elevated border border-border-subtle rounded-lg p-md hover:border-nagpur-orange transition-colors cursor-pointer group">
+<div class="flex justify-between items-center mb-sm">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-nagpur-orange transition-colors">lightbulb</span>
+<span class="font-data-md text-data-md text-data-green">98% Active</span>
+</div>
+<h4 class="font-body-lg text-body-lg text-on-surface mb-xs">Street Lighting</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">42,015 nodes operational</p>
+</div>
+<!-- Water Network -->
+<div class="bg-surface-elevated border border-border-subtle rounded-lg p-md hover:border-nagpur-orange transition-colors cursor-pointer group">
+<div class="flex justify-between items-center mb-sm">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-nagpur-orange transition-colors">water_drop</span>
+<span class="font-data-md text-data-md text-data-red">3 Leaks</span>
+</div>
+<h4 class="font-body-lg text-body-lg text-on-surface mb-xs">Water Network</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">1,204 km monitored</p>
+</div>
+<!-- Road Quality -->
+<div class="bg-surface-elevated border border-border-subtle rounded-lg p-md hover:border-nagpur-orange transition-colors cursor-pointer group">
+<div class="flex justify-between items-center mb-sm">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-nagpur-orange transition-colors">add_road</span>
+<span class="font-data-md text-data-md text-data-amber">85% Integrity</span>
+</div>
+<h4 class="font-body-lg text-body-lg text-on-surface mb-xs">Road Quality</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Ward 4 requires attention</p>
+</div>
+</div>
+<!-- Maintenance Schedule -->
+<div class="md:col-span-12 bg-surface-elevated border border-border-subtle rounded-lg p-lg">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-md">Scheduled Repairs</h3>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-border-subtle">
+<th class="font-label-caps text-label-caps text-on-surface-variant py-sm px-md">Asset ID</th>
+<th class="font-label-caps text-label-caps text-on-surface-variant py-sm px-md">Type</th>
+<th class="font-label-caps text-label-caps text-on-surface-variant py-sm px-md">Location</th>
+<th class="font-label-caps text-label-caps text-on-surface-variant py-sm px-md">Date</th>
+<th class="font-label-caps text-label-caps text-on-surface-variant py-sm px-md">Status</th>
+</tr>
+</thead>
+<tbody class="font-data-md text-data-md">
+<tr class="border-b border-border-subtle bg-surface-container-low/20">
+<td class="py-md px-md text-on-surface">WN-772A</td>
+<td class="py-md px-md text-on-surface-variant">Main Pipe</td>
+<td class="py-md px-md text-on-surface-variant">Dharampeth</td>
+<td class="py-md px-md text-on-surface-variant">Oct 24, 2024</td>
+<td class="py-md px-md"><span class="bg-data-amber/10 border border-data-amber text-data-amber px-sm py-xs rounded-DEFAULT">Pending</span></td>
+</tr>
+<tr class="border-b border-border-subtle">
+<td class="py-md px-md text-on-surface">SL-1049</td>
+<td class="py-md px-md text-on-surface-variant">LED Node</td>
+<td class="py-md px-md text-on-surface-variant">Sitabuldi</td>
+<td class="py-md px-md text-on-surface-variant">Oct 25, 2024</td>
+<td class="py-md px-md"><span class="bg-surface-container-highest border border-border-subtle text-on-surface-variant px-sm py-xs rounded-DEFAULT">Scheduled</span></td>
+</tr>
+<tr class="bg-surface-container-low/20">
+<td class="py-md px-md text-on-surface">RQ-004</td>
+<td class="py-md px-md text-on-surface-variant">Pothole Fill</td>
+<td class="py-md px-md text-on-surface-variant">Wardha Rd</td>
+<td class="py-md px-md text-on-surface-variant">Oct 28, 2024</td>
+<td class="py-md px-md"><span class="bg-surface-container-highest border border-border-subtle text-on-surface-variant px-sm py-xs rounded-DEFAULT">Scheduled</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+</body></html>
