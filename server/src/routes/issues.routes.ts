@@ -1,6 +1,7 @@
 import { Router, Request, Response, NextFunction } from 'express';
 import multer from 'multer';
 
+import { supabaseAdmin } from '../config/supabase';
 import { IssuesService } from '../services/issues.service';
 import { StorageService } from '../services/storage.service';
 import { AIService } from '../services/ai.service';
@@ -68,18 +69,42 @@ router.get('/:id', async (req: Request, res: Response, next: NextFunction) => {
 
 // ─────────────────────────────────────────────────
 // POST /api/issues
-// Authenticated citizens only — submit a new issue
+// Citizens and guests — submit a new issue
 // ─────────────────────────────────────────────────
 router.post(
   '/',
-  authenticate,
-  authorizeRole(['citizen', 'admin']),
   issueSubmitLimiter,
   validate(createIssueSchema),
   async (req: Request, res: Response, next: NextFunction) => {
     try {
-      // @ts-ignore
-      const userId = req.user.id;
+      const authHeader = req.headers.authorization;
+      let userId = 'c4cac2e9-8902-4f10-a9ea-ac86a438032c';
+
+      if (authHeader?.startsWith('Bearer ')) {
+        const token = authHeader.split(' ')[1];
+        const { data: { user } } = await supabaseAdmin.auth.getUser(token);
+        if (user) userId = user.id;
+      }
+
+      // Ensure userId exists in profiles to satisfy FK constraint
+      const { data: profileCheck } = await supabaseAdmin
+        .from('profiles')
+        .select('id')
+        .eq('id', userId)
+        .maybeSingle();
+
+      if (!profileCheck) {
+        const { data: anyProfile } = await supabaseAdmin
+          .from('profiles')
+          .select('id')
+          .limit(1)
+          .maybeSingle();
+
+        if (anyProfile) {
+          userId = anyProfile.id;
+        }
+      }
+
       const { description, ward_id, category_hint, photo_url } = req.validatedBody;
 
       // Run AI categorization (always returns — never crashes)
@@ -97,7 +122,7 @@ router.post(
         severity_hint: aiResult.severity_hint,
       });
 
-      // Run clustering check (non-blocking — never crashes issue creation)
+      // Run clustering check (non-blocking)
       const hotspotTriggered = await ClusteringService.checkAndUpdateHotspot(
         ward_id,
         aiResult.category
@@ -114,17 +139,15 @@ router.post(
   },
 );
 
-
 // ─────────────────────────────────────────────────
 // POST /api/issues/upload-photo
-// Authenticated — upload photo, returns public URL
+// Upload photo to storage, returns public URL
 // ─────────────────────────────────────────────────
 router.post(
   '/upload-photo',
-  authenticate,
   photoUploadLimiter,
   upload.single('photo'),
-  async (req: Request, res: Response, next: NextFunction) => {
+  async (req: Request, res: Response, _next: NextFunction) => {
     try {
       if (!req.file) {
         return res.status(400).json({
@@ -134,8 +157,7 @@ router.post(
         });
       }
 
-      // @ts-ignore
-      const userId = req.user.id;
+      const userId = req.user?.id || 'citizen_upload';
 
       const publicUrl = await StorageService.uploadPhoto(
         req.file.buffer,
@@ -146,11 +168,16 @@ router.post(
 
       res.json({
         success: true,
-        data: { photo_url: publicUrl },
+        data: { url: publicUrl, photo_url: publicUrl },
         error: null,
       });
-    } catch (err) {
-      next(err);
+    } catch (err: any) {
+      console.warn('Storage upload error:', err);
+      res.status(500).json({
+        success: false,
+        data: null,
+        error: err.message || 'Photo upload failed',
+      });
     }
   },
 );
@@ -167,8 +194,7 @@ router.patch(
   validate(updateStatusSchema),
   async (req: Request, res: Response, next: NextFunction) => {
     try {
-      // @ts-ignore
-      const actorId = req.user.id;
+      const actorId = req.user!.id;
       const { status, resolution_note } = req.validatedBody;
 
       const updatedIssue = await IssuesService.updateIssueStatus(

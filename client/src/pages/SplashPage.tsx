@@ -1,122 +1,156 @@
 import { useNavigate } from 'react-router-dom';
+import {
+  RadarIcon,
+  InfrastructureIcon,
+  AIEngineIcon,
+} from '../components/icons/CivicIcons';
 
 export default function SplashPage() {
   const navigate = useNavigate();
 
   return (
-    <div className="bg-[#111319] text-[#e2e2eb] min-h-screen relative overflow-hidden flex flex-col justify-center items-center p-6 selection:bg-orange-500 selection:text-white">
-      {/* Background Map Texture */}
+    <div className="bg-[#0F141C] text-[#E6EDF3] min-h-screen flex flex-col justify-between selection:bg-[#E85D04] selection:text-white font-sans relative overflow-hidden">
+      {/* Background Subtle Spatial Grid */}
       <div 
-        className="absolute inset-0 w-full h-full opacity-20 pointer-events-none"
+        className="absolute inset-0 pointer-events-none opacity-[0.04]"
         style={{
-          backgroundImage: "radial-gradient(rgba(250, 92, 27, 0.15) 1px, transparent 1px)",
-          backgroundSize: "24px 24px"
+          backgroundImage: `radial-gradient(circle at 1px 1px, #E6EDF3 1px, transparent 0)`,
+          backgroundSize: '32px 32px'
         }}
       />
-      {/* Central Glow Effect */}
-      <div className="absolute inset-0 w-full h-full pointer-events-none flex items-center justify-center">
-        <div className="w-[600px] h-[600px] bg-[#fa5c1b] rounded-full blur-[140px] opacity-10 animate-pulse" />
-      </div>
 
-      {/* Main Content */}
-      <main className="relative z-20 flex flex-col items-center max-w-4xl w-full">
-        {/* Brand Identity */}
-        <div className="flex flex-col items-center mb-8 text-center">
-          <div className="w-24 h-24 rounded-2xl bg-[#1e1f26] border border-[#5b4138] flex items-center justify-center mb-6 shadow-[0_0_24px_rgba(250,92,27,0.2)] relative group cursor-default">
-            <span className="material-symbols-outlined text-[#fa5c1b] text-5xl group-hover:scale-110 transition-transform duration-300">
-              radar
+      {/* Top Header */}
+      <header className="relative z-20 px-6 py-5 flex items-center justify-between border-b border-[#222D3D] bg-[#0F141C]/80 backdrop-blur-md">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-xl bg-[#151D28] border border-[#324259] p-1.5 flex items-center justify-center shadow-md">
+            <img src="/nagpur-logo.png" alt="Nagpur Logo" className="w-full h-full object-contain" />
+          </div>
+          <div>
+            <span className="font-display font-bold text-sm tracking-tight text-white block">
+              NAGPUR PULSE
+            </span>
+            <span className="text-[9px] font-mono text-[#8B9BB4] block uppercase tracking-wider">
+              NMC Municipal Operations & Telemetry
             </span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-[#e2e2eb] mb-2 tracking-tight">
-            Nagpur Pulse
-          </h1>
-          <div className="flex items-center gap-2 mt-1">
-            <div className="w-2 h-2 rounded-full bg-[#fa5c1b] animate-ping" />
-            <p className="text-base md:text-lg text-[#e3bfb3] font-medium tracking-wide">
-              Every ward. Every issue. Visible.
-            </p>
-            <div className="w-2 h-2 rounded-full bg-[#fa5c1b] animate-ping" />
-          </div>
         </div>
 
-        {/* Entry Points Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-4xl mt-4">
-          {/* Citizen Portal Card */}
-          <div 
-            onClick={() => navigate('/home')}
-            className="group flex flex-col items-center p-6 rounded-xl bg-[#191b22] border border-[#33343b] hover:border-[#fa5c1b] hover:shadow-[0_0_20px_rgba(250,92,27,0.25)] transition-all duration-300 relative overflow-hidden cursor-pointer"
+        {/* Clean Header Right: Access Portal Link */}
+        <div>
+          <button
+            onClick={() => navigate('/auth')}
+            className="hud-panel px-3.5 py-1.5 text-xs font-mono text-[#8B9BB4] hover:text-white hover:border-[#E85D04] transition-colors"
           >
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#fa5c1b]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            <div className="w-16 h-16 rounded-full bg-[#282a30] flex items-center justify-center mb-4 group-hover:bg-[#fa5c1b]/20 transition-colors duration-300">
-              <span className="material-symbols-outlined text-[#e3bfb3] group-hover:text-[#fa5c1b] transition-colors duration-300 text-3xl">
-                groups
-              </span>
+            Official / Citizen Login →
+          </button>
+        </div>
+      </header>
+
+      {/* Main Hero Container */}
+      <main className="relative z-20 flex-1 flex flex-col items-center justify-center px-4 py-8 max-w-5xl mx-auto w-full text-center">
+        {/* Brand Emblem */}
+        <div className="w-24 h-24 rounded-2xl bg-[#161D27] border border-[#2B3A4E] p-2 flex items-center justify-center mb-5 shadow-[0_0_35px_rgba(232,93,4,0.22)]">
+          <img
+            src="/nagpur-logo.png"
+            alt="Nagpur The Orange City Logo"
+            className="w-full h-full object-contain"
+          />
+        </div>
+
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#182230] border border-[#263345] text-xs font-mono text-[#8B9BB4] mb-3">
+          <span className="w-2 h-2 rounded-full bg-[#4EBA6F] animate-pulse" />
+          <span>Vikasit Nagpur 2026 · AI-Powered Civic Intelligence</span>
+        </div>
+
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-display tracking-tight text-white mb-3 max-w-3xl">
+          Every Ward. Every Incident. <span className="text-[#E85D04]">Visible in Real-Time.</span>
+        </h1>
+
+        <p className="text-sm sm:text-base text-[#8B9BB4] max-w-2xl leading-relaxed mb-8">
+          The unified municipal operations platform for Nagpur — transforming citizen reports into geo-clustered hotspot diagnostics and rapid civil engineering dispatch.
+        </p>
+
+        {/* 3 Domain Portal Entry Panels */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-4xl text-left">
+          {/* 1. Citizen Portal */}
+          <div
+            onClick={() => navigate('/auth?role=citizen')}
+            className="group hud-panel p-5 hover:border-[#E85D04] transition-all duration-200 cursor-pointer relative overflow-hidden"
+          >
+            <div className="flex items-center justify-between mb-3">
+              <span className="text-[10px] font-mono uppercase text-[#E85D04] font-bold">Public Terminal</span>
+              <RadarIcon size={18} color="#E85D04" />
             </div>
-            <h2 className="text-xl font-bold text-[#e2e2eb] mb-2">Citizen Portal</h2>
-            <p className="text-sm text-[#8B8FA8] text-center mb-6 flex-1">
-              AI-powered reporting, real-time map tracking, and ward analytics.
+            <h3 className="text-lg font-display font-bold text-white mb-1 group-hover:text-[#E85D04] transition-colors">
+              Citizen Radar
+            </h3>
+            <p className="text-xs text-[#8B9BB4] leading-relaxed mb-4">
+              Submit voice/text complaints, inspect live pothole & drainage pins, and track resolution tickets.
             </p>
-            <button className="w-full py-2.5 px-4 bg-[#fa5c1b] text-white font-mono text-xs font-bold rounded-lg flex items-center justify-center gap-2 hover:bg-[#d94a10] transition-colors relative z-10">
-              Enter Citizen Portal
-              <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
-            </button>
+            <div className="flex items-center gap-1 text-xs font-mono font-bold text-[#E85D04]">
+              <span>Access Citizen Portal</span>
+              <span>→</span>
+            </div>
           </div>
 
-          {/* Authority Login Card */}
-          <div 
+          {/* 2. Ward Authority */}
+          <div
             onClick={() => navigate('/auth?role=authority')}
-            className="group flex flex-col items-center p-6 rounded-xl bg-[#191b22] border border-[#33343b] hover:border-[#F59E0B] hover:shadow-[0_0_20px_rgba(245,158,11,0.2)] transition-all duration-300 relative overflow-hidden cursor-pointer"
+            className="group hud-panel p-5 hover:border-[#E09F3E] transition-all duration-200 cursor-pointer relative overflow-hidden"
           >
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#F59E0B]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            <div className="w-16 h-16 rounded-full bg-[#282a30] flex items-center justify-center mb-4 group-hover:bg-[#F59E0B]/20 transition-colors duration-300">
-              <span className="material-symbols-outlined text-[#e3bfb3] group-hover:text-[#F59E0B] transition-colors duration-300 text-3xl">
-                admin_panel_settings
-              </span>
+            <div className="flex items-center justify-between mb-3">
+              <span className="text-[10px] font-mono uppercase text-[#E09F3E] font-bold">Zone Operations</span>
+              <InfrastructureIcon size={18} color="#E09F3E" />
             </div>
-            <h2 className="text-xl font-bold text-[#e2e2eb] mb-2">Authority Login</h2>
-            <p className="text-sm text-[#8B8FA8] text-center mb-6 flex-1">
-              Municipal AI dashboards, ticket management, and spatial task assignment.
+            <h3 className="text-lg font-display font-bold text-white mb-1 group-hover:text-[#E09F3E] transition-colors">
+              Ward Authority Hub
+            </h3>
+            <p className="text-xs text-[#8B9BB4] leading-relaxed mb-4">
+              Triage open incidents, trigger 1-click AI contractor dispatch, and manage municipal work orders.
             </p>
-            <button className="w-full py-2.5 px-4 bg-transparent border border-[#5b4138] text-[#e2e2eb] font-mono text-xs font-bold rounded-lg flex items-center justify-center gap-2 hover:bg-[#282a30] transition-colors relative z-10">
-              Authority Login
-              <span className="material-symbols-outlined text-[16px]">login</span>
-            </button>
+            <div className="flex items-center gap-1 text-xs font-mono font-bold text-[#E09F3E]">
+              <span>Enter Ward Console</span>
+              <span>→</span>
+            </div>
           </div>
 
-          {/* Admin Access Card */}
-          <div 
+          {/* 3. Municipal Admin */}
+          <div
             onClick={() => navigate('/auth?role=admin')}
-            className="group flex flex-col items-center p-6 rounded-xl bg-[#191b22] border border-[#33343b] hover:border-[#aa897f] hover:shadow-[0_0_20px_rgba(170,137,127,0.15)] transition-all duration-300 relative overflow-hidden cursor-pointer"
+            className="group hud-panel p-5 hover:border-[#4EBA6F] transition-all duration-200 cursor-pointer relative overflow-hidden"
           >
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            <div className="w-16 h-16 rounded-full bg-[#282a30] flex items-center justify-center mb-4 group-hover:bg-[#33343b] transition-colors duration-300">
-              <span className="material-symbols-outlined text-[#e3bfb3] group-hover:text-white transition-colors duration-300 text-3xl">
-                terminal
-              </span>
+            <div className="flex items-center justify-between mb-3">
+              <span className="text-[10px] font-mono uppercase text-[#4EBA6F] font-bold">Executive Command</span>
+              <AIEngineIcon size={18} color="#4EBA6F" />
             </div>
-            <h2 className="text-xl font-bold text-[#e2e2eb] mb-2">Admin Access</h2>
-            <p className="text-sm text-[#8B8FA8] text-center mb-6 flex-1">
-              Global system configuration, user management, and AI model oversight.
+            <h3 className="text-lg font-display font-bold text-white mb-1 group-hover:text-[#4EBA6F] transition-colors">
+              City Admin
+            </h3>
+            <p className="text-xs text-[#8B9BB4] leading-relaxed mb-4">
+              Analyze citywide ward SLA leaderboards, export CSV audit reports, and calibrate AI policy models.
             </p>
-            <button className="w-full py-2.5 px-4 bg-transparent border border-[#5b4138] text-[#e2e2eb] font-mono text-xs font-bold rounded-lg flex items-center justify-center gap-2 hover:bg-[#282a30] transition-colors relative z-10">
-              Admin Access
-              <span className="material-symbols-outlined text-[16px]">key</span>
-            </button>
-          </div>
-        </div>
-
-        {/* Footer / Metadata */}
-        <div className="mt-12 pt-6 border-t border-[#282a30] w-full max-w-4xl flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-[#8B8FA8] font-mono">
-          <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-[16px] text-green-400">shield</span>
-            <span>Secure Supabase & AI Connection Active</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse inline-block" />
-            <span>Nagpur Civic Engine v2.4.1</span>
+            <div className="flex items-center gap-1 text-xs font-mono font-bold text-[#4EBA6F]">
+              <span>Open Admin HQ</span>
+              <span>→</span>
+            </div>
           </div>
         </div>
       </main>
+
+      {/* Footer Telemetry Strip */}
+      <footer className="relative z-20 px-6 py-3 border-t border-[#222D3D] bg-[#0F141C] flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-[#8B9BB4]">
+        <div className="flex items-center gap-4">
+          <span>Nagpur Municipal Corporation (NMC)</span>
+          <span>·</span>
+          <span>8 Administrative Wards</span>
+          <span>·</span>
+          <strong className="text-white">Nag River Basin Telemetry</strong>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-[#4EBA6F] animate-ping" />
+          <span className="text-white">System Status: 100% Operational</span>
+        </div>
+      </footer>
     </div>
   );
 }

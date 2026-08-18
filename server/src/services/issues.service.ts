@@ -24,7 +24,7 @@ export class IssuesService {
    * Get issues with optional filters and pagination
    */
   static async getIssues(filters: IssueFilters = {}): Promise<{ issues: Issue[]; count: number }> {
-    let query = supabaseAnon.from('issues').select('*', { count: 'exact' });
+    let query = supabaseAdmin.from('issues').select('*', { count: 'exact' });
 
     // Apply filters
     if (filters.ward_id) {
@@ -63,7 +63,7 @@ export class IssuesService {
    * Get a single issue by ID with status history
    */
   static async getIssueById(id: string): Promise<Issue & { status_history: any[] }> {
-    const { data, error } = await supabaseAnon
+    const { data, error } = await supabaseAdmin
       .from('issues')
       .select(`
         *,

@@ -1,33 +1,33 @@
 export const categoryColors: Record<string, string> = {
-  pothole: '#EF4444',
-  streetlight: '#F59E0B',
-  water: '#3B82F6',
-  garbage: '#84CC16',
-  drainage: '#8B5CF6',
-  encroachment: '#F97316',
-  other: '#6B7280',
+  pothole: '#E85D04',     // Nagpur Mandarin / Asphalt Fissure
+  streetlight: '#F59E0B', // Municipal Amber Illumination
+  water: '#06B6D4',       // Nag River Mineral Cyan
+  drainage: '#0E7490',    // Stormwater Culvert Oxide Teal
+  garbage: '#65A30D',     // Solid Waste Olive
+  encroachment: '#DC2626', // Zoning Hazard Barrier Red
+  other: '#64748B',       // Municipal Registry Slate
 };
 
 export const categoryLabels: Record<string, string> = {
-  pothole: 'Pothole',
+  pothole: 'Road Hazard',
   streetlight: 'Streetlight',
-  water: 'Water Supply',
-  garbage: 'Garbage',
-  drainage: 'Drainage',
-  encroachment: 'Encroachment',
-  other: 'Other',
+  water: 'Water Utility',
+  garbage: 'Sanitation',
+  drainage: 'Storm Drainage',
+  encroachment: 'Zoning & Nuisance',
+  other: 'Civic Utility',
 };
 
 export const statusColors: Record<string, string> = {
-  open: '#EF4444',
-  in_progress: '#F59E0B',
-  resolved: '#22C55E',
-  flagged: '#6B7280',
+  open: '#D9534F',        // Desaturated Alert Oxide
+  in_progress: '#E09F3E', // Operational Amber
+  resolved: '#38B000',    // Restored Civic Green
+  flagged: '#64748B',     // Flagged / Hold Slate
 };
 
 export const statusLabels: Record<string, string> = {
-  open: 'Open',
-  in_progress: 'In Progress',
+  open: 'Open Incident',
+  in_progress: 'Crew Dispatched',
   resolved: 'Resolved',
-  flagged: 'Flagged',
+  flagged: 'Under Review',
 };

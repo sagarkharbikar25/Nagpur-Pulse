@@ -34,16 +34,29 @@ export class StorageService {
     const timestamp = Date.now();
     const uniqueName = `${userId}/${timestamp}.${extension}`;
 
-    // Upload to Supabase Storage
-    const { data, error } = await supabaseAdmin.storage
+    // Upload to Supabase Storage (auto-create bucket if missing)
+    let { data, error } = await supabaseAdmin.storage
       .from(BUCKET_NAME)
       .upload(uniqueName, file, {
         contentType: mimeType,
         upsert: false,
       });
 
-    if (error) {
-      throw new Error(`Failed to upload photo: ${error.message}`);
+    if (error && (error.message.includes('not found') || error.message.includes('Bucket'))) {
+      // Create bucket on the fly with public read access
+      await supabaseAdmin.storage.createBucket(BUCKET_NAME, { public: true });
+      const retry = await supabaseAdmin.storage
+        .from(BUCKET_NAME)
+        .upload(uniqueName, file, {
+          contentType: mimeType,
+          upsert: false,
+        });
+      data = retry.data;
+      error = retry.error;
+    }
+
+    if (error || !data) {
+      throw new Error(`Failed to upload photo: ${error?.message || 'Unknown error'}`);
     }
 
     // Get public URL

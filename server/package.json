@@ -4,7 +4,7 @@
   "main": "dist/server.js",
   "scripts": {
     "start": "node dist/server.js",
-    "dev": "tsx src/server.ts",
+    "dev": "tsx watch src/server.ts",
     "build": "tsc --project tsconfig.json",
     "lint": "eslint . --ext .ts",
     "test": "echo \"No tests yet\""

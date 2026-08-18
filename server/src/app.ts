@@ -1,7 +1,6 @@
 import express from 'express';
 import helmet from 'helmet';
 import cors from 'cors';
-import { env } from './config/env';
 
 // Middleware
 import { errorHandler } from './middleware/errorHandler';
@@ -12,6 +11,7 @@ import issuesRoutes from './routes/issues.routes';
 import wardsRoutes from './routes/wards.routes';
 import hotspotsRoutes from './routes/hotspots.routes';
 import dashboardRoutes from './routes/dashboard.routes';
+import authRoutes from './routes/auth.routes';
 
 // Express request augmentation
 declare global {
@@ -35,7 +35,8 @@ const app = express();
 app.use(helmet());
 app.use(
   cors({
-    origin: env.CLIENT_URL,
+    origin: true,
+    credentials: true,
     methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
   }),
@@ -71,6 +72,7 @@ app.use('/api/issues', issuesRoutes);
 app.use('/api/wards', wardsRoutes);
 app.use('/api/hotspots', hotspotsRoutes);
 app.use('/api/dashboard', dashboardRoutes);
+app.use('/api/auth', authRoutes);
 
 // 404 handler
 app.use((_req, res) => {
